@@ -1,0 +1,38 @@
+<Tower>
+	<Name>Cannon Tower</Name>
+	<Description>Ground only, small splash</Description>
+	<Requirements UpgradePoint="true">
+		<RequiredTower>arrow</RequiredTower>
+		<RequiredTower>fire</RequiredTower>
+	</Requirements>
+
+	<TurretLength>10</TurretLength>
+
+	<!-- Need atleast one of HitsGround / HitsFlyers if you want it to shoot enemies! -->
+	<Capability HitsGround="True" HitsFlyers="True" Slows="True"/>
+
+	<!-- ShotType replaces the old single character flag -->
+	<ShotType>arrow</ShotType>
+	<Levels>
+		<Level Cost="10" Damage="10" ROF="1000" Range="100" Splash="10" Speed="50" />
+		<Level Cost="20" Damage="15" ROF="1000" Range="110" Splash="20" Speed="50" />
+		<Level Cost="20" Damage="20" ROF="1000" Range="120" Splash="30" Speed="50" />
+	</Levels>
+	
+	<!-- Width/Height is in 16x16 blocks, tower image will be drawn in the center of this area. -->
+	<!-- It is of course best to make a W/H: 2x2 tower be 32x32 pixels (or something like that) -->
+	<TowerSprite File="tower.png" Width="2" Height="2" />
+	<!-- X,Y are the point on the tower where the turret will be centered, if unset the center of the tower will be used. -->
+	<TurretSprite File="turret.png" X="16" Y="12" />
+	
+	<!-- Frames is the amount of frames in the file/sprite -->
+	<!-- Time is the amount of time each frame of the sprite will be shown for -->
+	<!-- This must be 1,2,4,8,16 (Yeah I'm being strict!) This will be a 1x1, 2x1, 4x1, 8x1, 8x2 spritesheet -->
+	<!-- The sprite will be drawn centered at the end of the turret (as decided by TurretLength above, pointed in the direction of the target -->
+	<!-- This means that a smoke blast will point in the correct direction -->
+	<FireSprite File="fire.png" Frames="4" Time="100" />
+	
+	<!-- Not required tags unless u want to rename the file, if file not specified and not found it will not be played, if specified and not found an error will be raised/logged -->
+	<FireSound File="fire.wav" />
+	<HitSound File="hit.wav" />
+</Tower>

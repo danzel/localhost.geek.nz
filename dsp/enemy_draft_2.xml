@@ -1,0 +1,19 @@
+<Enemy>
+	<!-- These are all explanatory, PointValue scales down the longer the enemy is alive -->
+	<Name>Giant Mouse</Name>
+	<Health>40</Health>
+	<GoldValue>4</GoldValue>
+	<PointValue>10</PointValue>
+	<Size>5</Size>
+	<Speed>20</Speed>
+
+	<!-- Animation times -->
+	<FrameTime>250</FrameTime>
+	<DeathFrameTime>100</DeathFrameTime>
+
+	<!-- If enemy is flying, defaults to ground otherwise -->
+	<FlyingEnemy />
+
+	<!-- If enemy resists slow -->
+	<Unslowable />
+</Enemy>

@@ -1,0 +1,111 @@
+<Level>
+	<Name>Hard Forest</Name>
+	<Author>danzel - localhost.geek.nz</Author>
+	<Description><![CDATA[
+sfga
+sadfewrt
+bxdfr
+erawr
+]]></Description>
+	<InitialGold>30</InitialGold>
+	<InitialResearchPoints>1</InitialResearchPoints>
+	<InitialLives>20</InitialLives>
+	<WaveInterest>10</WaveInterest>
+	
+	<!-- InterestUpgrades is an optional element, only if u want to allow upgrading interest -->
+	<InterestUpgrades>
+		<InterestLevel Cost="10" Interest="15"/>
+		<InterestLevel Cost="20" Interest="20"/>
+		<InterestLevel Cost="40" Interest="25"/>
+	</InterestUpgrades>
+	
+	<!-- Menu describes the menu items, TowerMenu, InterestMenu, LivesMenu are the valid types -->
+	<Menu>
+		<TowerMenu X="0" Y="0" Folder="cannon" />
+		<TowerMenu X="1" Y="0" Folder="arrow" />
+		<TowerMenu X="2" Y="0" Folder="missile" />
+		<TowerMenu X="0" Y="1" Folder="laser />
+		<InterestMenu X="2" Y="3" />
+		<LivesMenu X="3" Y="3" Cost="20" />
+	</Menu>
+	
+	<!-- BuildMap, if there is a better way to represent this I am open to ideas -->
+	<BuildMap><![CDATA[
+################################
+################################
+##_____________##_____________##
+##_____________##_____________##
+##__########___##___########__##
+##__########___##___########__##
+##__##____##___##___##____##__##
+##__##____##___##___##____##__##
+____##____##___##___##____##__##
+____##____##___##___##____##__##
+____########___##___########__##
+############___##___########__##
+######_________##________##___##
+____##_________##________##___##
+____##__##############___##___##
+____##__##############___##___##
+##__##__##__________##___##___##
+##__##__##__________##___##___##
+##__##__##__________##___##___##
+##__##__##__________##___##___##
+##__##__##############___##___##
+##__##__##############___##___##
+##__##___________________##___##
+##__##___________________##___##
+##__##___________________##___##
+##__#######################___##
+##__#######################___##
+##____________________________##
+##____________________________##
+##____________________________##
+################################
+################################
+]]></BuildMap>
+	
+	<!-- You are allowed multiple named paths -->
+	<Path name="patha">
+		<!-- Radius is a distance within which the enemy must get to be at the WayPoint, they will choose a random point within this distance of the point to travel to. This is so they don't all follow a perfect line, can make movements look more natural. For spawn points they will spawn at a random position within the radius of the defined WayPoint. Defaults to 0 if unset (perfect lines and positioning). NOT VALID FOR PATHFIND -->
+		<Waypoint X="64" Y="-16" Radius="10" />
+		<Waypoint X="64" Y="192" Radius="10" />
+		<Waypoint X="192" Y="192 Radius="0"  />
+		<Waypoint X="-16" Y="192" Radius="10" />
+	</Path>
+	<Path name="pathb">
+		<Waypoint X="-16" Y="192"/>
+		<Waypoint X="192" Y="192"/>
+		<Waypoint X="64" Y="192"/>
+		<Waypoint X="64" Y="-16"/>
+	</Path>
+	<!-- A pathfind path lets enemies find their way across the level, avoiding towers, the start/end are to get the enemy moving onto the screen before the pathfinding takes over -->
+	<Path name="pathc" type="pathfind">
+		<Start>
+			<Waypoint X="64" Y="-16"/>
+			<Waypoint X="64" Y="16"/>
+		</Start>
+		<End>
+			<Waypoint X="64" Y="498"/>
+			<Waypoint X="64" Y="528"/>
+		</End>
+	</Path>
+	
+	<!-- Usual waves definition, 'waittime' lets u define a preset time between waves, the next wave will start to spawn after this time wether or not the current wave has been destroyed, set to 0 to have concurrent waves. Don't set for manual spawning. Play can manual spawn waves if there are no waves running. First wave is always manual spawn. -->
+	<Waves>
+		<!-- A single wave, path chooses the path to use, spawntime is the spawntime between enemies in the wave -->
+		<Wave Path="patha" SpawnTime="1000" WaitTime="60000" Description="Look out for the dogs">
+			<!-- An enemy, count lets you spawn more than 1 in a row, if ommitted only a single enemy is spawned -->
+			<Enemy Folder="pig" Count="4"/>
+			<Enemy Folder="cat"/>
+			<Enemy Folder="dog" Count="4"/>
+		</Wave>
+		<Wave Path="pathb" SpawnTime="4000" Description="Bigger dogs this time" UpgradePoint="True" SaveTheHouse="True">
+			<!-- Multiplier makes enemys have X times more health, give X times more $ and points. Allows easy reuse of existing enemies. -->
+			<Enemy Folder="dog" Count="10" Multiplier="1.5" />
+		</Wave>
+		<Wave Path="pathc" SpawnTime="4000" Description="Even bigger dogs this time" Boss="True">
+			<Enemy Folder="cdog" Count="10"/>
+		</Wave>
+	</Waves>
+</Level>

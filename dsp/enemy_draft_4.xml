@@ -1,0 +1,34 @@
+<Enemy>
+	<!-- These are all explanatory, PointValue scales down the longer the enemy is alive -->
+	<Name>Giant Mouse</Name>
+	<Size>5</Size>
+	<Levels>
+		<!-- Levels are numbered 1, 2, 3, etc (For use in Level.Waves.Wave.Enemy->Level) -->
+		<!-- This allows reuse of the same sprite/sound setup. -->
+		<!-- Slowable defaults to true if unset -->
+		<Level Health="40" GoldValue="4" PointValue="10" Speed="20" Slowable="False"/>
+		<Level Health="60" GoldValue="8" PointValue="10" Speed="40" Slowable="True"/>
+	</Levels>
+	<!-- If enemy is flying, defaults to ground otherwise (Will add other Capabilities...) -->
+	<Capabilities Flying="True" />
+	
+	<!-- Sprites used for enemy, NOTE: Alive/Death sprites are not in the same file anymore -->
+	<!-- Frames is the amount of frames in the file/sprite -->
+	<!-- Time is the amount of time each frame of the sprite will be shown for -->
+	<!-- This must be 1,2,4,8,16 (Yeah I'm being strict!) This will be a 1x1, 2x1, 4x1, 8x1, 8x2 spritesheet -->
+	<!-- File is optional for the following 4, it will default to the shown value if not present -->
+	<!-- If file not specified and not found it will not be played/shown (except for alive.png), if specified and not found an error will be raised/logged -->
+	<AliveSprite File="alive.png" Frames="8" Time="100" />
+	<DeathSprite File="death.png" Frames="4" Time="100" />
+	<DeathSound File="death.wav" />
+	<!-- Sound played when enemy leaves the level, defaults to leave.wav -->
+	<LeaveSound File="leave.wav" />
+	
+	<!-- Specifies tower specific damage multipliers -->
+	<!-- Before taking damage from the specified tower it is multiplied by the multiplier -->
+	<!-- Tower is the FOLDER NAME of the tower, not the <Name>XXX</Name> -->
+	<Weaknesses>
+		<Weakness Tower="cannon" Multiplier="2.0" />
+		<Weakness Tower="arrow" Multiplier="0.5" />
+	</Weaknesses>
+</Enemy>

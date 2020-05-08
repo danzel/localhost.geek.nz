@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Uncategorized &#8211; Danzels Internets</title>
+	<atom:link href="http://OFFLINEZIP.wpshocategory/uncategorized/feed/" rel="self" type="application/rss+xml" />
+	<link>http://OFFLINEZIP.wpsho</link>
+	<description></description>
+	<lastBuildDate>Fri, 08 May 2020 22:49:26 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.14</generator>
+	<item>
+		<title>Converting to static site</title>
+		<link>http://OFFLINEZIP.wpsho2020/05/09/converting-to-static-site/</link>
+		<pubDate>Fri, 08 May 2020 22:49:26 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=290</guid>
+		<description><![CDATA[I don&#8217;t post on here any more, so I&#8217;m converting the existing wordpress to a static site. The whole site will probably disappear or be replaced in the future.]]></description>
+				<content:encoded><![CDATA[<p>I don&#8217;t post on here any more, so I&#8217;m converting the existing wordpress to a static site.</p>
+<p>The whole site will probably disappear or be replaced in the future.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>How to get the Apple style emojis back in Slack on Windows</title>
+		<link>http://OFFLINEZIP.wpsho2018/02/09/how-to-get-the-apple-style-emojis-in-slack-on-windows/</link>
+		<pubDate>Thu, 08 Feb 2018 20:19:27 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=282</guid>
+		<description><![CDATA[If you use Slack in a Browser, change the user agent to a Mac OS X one, for example: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36 You can use the User-Agent Switcher plugin for chrome. (Their default OS X Chrome is a too old version, so slack won&#8217;t load). [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>If you use Slack in a <strong>Browser</strong>, change the user agent to a Mac OS X one, for example:</p>
+<pre>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36</pre>
+<p>You can use the <a href="https://chrome.google.com/webstore/detail/user-agent-switcher-for-g/ffhkkpnppgnfaobgihpdblnhmmbodake/">User-Agent Switcher plugin for chrome.</a> (Their default OS X Chrome is a too old version, so slack won&#8217;t load).</p>
+<p>&nbsp;</p>
+<p>If you use the <strong>Desktop App</strong> it&#8217;s a bit more complicated:<br />
+Quit slack.</p>
+<p><code>npm install -g asar</code></p>
+<p>Open a console in <code>C:\Users\{your user}\AppData\Local\slack\app-3.0.5\resources<br />
+</code>(version number may change in the future)</p>
+<p><code>asar e app.asar app-extract</code></p>
+<p>open app-extract/package.json<br />
+Add the whole user agent from above in to the the version field (Keeping the version at the start)<br />
+example: &#8220;3.0.5 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36&#8221;.</p>
+<p><code>move app.asar app-original.asar</code><br />
+<code>asar p app-extract app.asar</code></p>
+<p>And restart slack! You&#8217;ll have to re-do this every time slack updates.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Setting up OBS to record your desktop</title>
+		<link>http://OFFLINEZIP.wpsho2016/10/03/setting-up-obs-to-record-your-desktop/</link>
+		<pubDate>Mon, 03 Oct 2016 01:04:49 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=276</guid>
+		<description><![CDATA[Download OBS Studio https://obsproject.com/download Install it Run OBS File, Settings Tab: Video Change Base and Output to be the same resolution (1920&#215;1080 probably) Tab: Output Encoder: Hardware (Anything) Recording Format: mp4 ok, close out of settings Sources [+] (at the bottom) Display Capture [ok] [ok] Check your video looks right in the video area (Should [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Download OBS Studio <a href="https://obsproject.com/download">https://obsproject.com/download</a><br />
+Install it<br />
+Run OBS</p>
+<p>File, Settings</p>
+<p><strong>Tab: Video</strong><br />
+Change Base and Output to be the same resolution (1920&#215;1080 probably)</p>
+<p><strong>Tab: Output</strong><br />
+Encoder: Hardware (Anything)<br />
+Recording Format: mp4</p>
+<p>ok, close out of settings</p>
+<p><strong>Sources [+]</strong> (at the bottom)<br />
+Display Capture<br />
+[ok] [ok]</p>
+<p>Check your video looks right in the video area (Should be showing your desktop)<br />
+You can click in there and resize, but if you need to do that you probably didn&#8217;t get the video resolution correct before.</p>
+<p>Ready!</p>
+<p>Hit [Start Recording] to record.</p>
+<p>&nbsp;</p>
+<p>In the future you should just be able to start OBS, the display should already be in the video pane, hit [Start Recording]</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Massive Match</title>
+		<link>http://OFFLINEZIP.wpsho2016/06/07/massive-match/</link>
+		<pubDate>Tue, 07 Jun 2016 09:24:56 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=271</guid>
+		<description><![CDATA[Last week I released a game called &#8220;Massive Match&#8220;. It is the first ever Massively Multiplayer Match 3. You can go play it right now, just click: Here! I built this game using TypeScript and Phaser. There is a little write up on the stack over at Gamasutra and I talked a bit of the tech details [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Last week I released a game called &#8220;<a href="https://massivematch.io">Massive Match</a>&#8220;. It is the first ever Massively Multiplayer Match 3.</p>
+<p>You can go play it right now, just click: <a href="https://massivematch.io">Here!</a></p>
+<div style="width: 650px" class="wp-caption aligncenter"><img class="" src="http://motherboard-images.vice.com/content-images/contentimage/no-id/1465128514258509.gif" width="640" height="422" /><p class="wp-caption-text">Massive Match Gameplay</p></div>
+<p>I built this game using TypeScript and Phaser. There is a little write up on the stack <a href="http://www.gamasutra.com/blogs/DaveLeaver/20160531/273235/Modern_HTML5_game_tech_stack.php">over at Gamasutra</a> and I talked a bit of the tech details on <a href="http://www.html5gamedevs.com/topic/22892-phaser-massivematchio-massively-multiplayer-match-3/">HTML 5 Game Devs</a>.</p>
+<p>&nbsp;</p>
+<p>Enjoy!</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>YOW! Melbourne 2015</title>
+		<link>http://OFFLINEZIP.wpsho2015/12/11/yow-melbourne-2015/</link>
+		<pubDate>Thu, 10 Dec 2015 21:30:24 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=267</guid>
+		<description><![CDATA[I was lucky enough to attend YOW! in Melbourne last week, here is a braindump of what I went to. &#160; Day 1 It&#8217;s Complicated&#8230; Virtual Teams: Making Them Work Interesting talk on Virtual Teams (Not remote teams). A Virtual Team is where (ideally) everyone is remote. Some takeaways: Almost everyone in the room used Slack. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I was lucky enough to attend <a href="http://melbourne.yowconference.com.au/" target="_blank">YOW!</a> in Melbourne last week, here is a braindump of what I went to.</p>
+<p>&nbsp;</p>
+<p><strong>Day 1</strong></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/556bf609e81b83070a0000dc?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">It&#8217;s Complicated&#8230;</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56527778a7e16fff0400004b?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Virtual Teams: Making Them Work</a></p>
+<p>Interesting talk on Virtual Teams (Not remote teams). A Virtual Team is where (ideally) everyone is remote. Some takeaways:<br />
+Almost everyone in the room used Slack.<br />
+When there is an office and some people remote, if the people in the office all go in to a room to have a call with remote people, this will make the remote people feel even more remote as the people together will have a conversation between themselves that they can&#8217;t really be a part of.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/561f2d5a02a8ab08a30000c7?track=Mobile&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Rethinking MVC with React Native &amp; ReactiveCocoa</a></p>
+<p>React Native is a React Framework for doing native looking mobile apps using javascript and React.  It looks pretty awesome.</p>
+<p>ReactiveCocoa is a React style framework for Cocoa UI, also looks pretty awesome.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b209f50fe03a39000198?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Pragmatic Microservices: Whether, When and How to Migrate</a></p>
+<p>This was an excellent talk. Randy went through lots of things around moving towards a microservice architecture, recommend watching this one back when the vids arrive.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b11877c84e50e8003a8c?track=Languages&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Production Haskell</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b06077c84e5866003a89?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Sustainability Supporting Data Variability: Keeping Core Components Clean while Dealing with Data Variability</a></p>
+<p>Another really good talk, talked about how they added lots of custom logic and processing to their app without making it a mess.<br />
+Spoilers: Preprocessing data, hook points to allow specific extensions and validation.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577afbff50fe0f69e000187?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Frugal Innovation and Scaffolding software</a></p>
+<p>Really good feel good talk on innovation in Africa, when the video comes up make sure you watch it!</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/556bfa40e81b83f9c50000e3?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Thriving in a Stochastic World</a></p>
+<p>Good talk for teams that try optimise for reliability in their process.</p>
+<p>&nbsp;</p>
+<p><strong>Day 2</strong></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/555b325601bd0e2a5c000167?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Using Formal Methods to Eliminate Exploitable Bugs</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/55caa619ada984d41f000088?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Delivery Mapping: Turning the Lights On</a></p>
+<p>Really Really good talk for anyone doing scrum, Slides are online but don&#8217;t make sense by themselves, watch out for the video.</p>
+<p>Talks about the human-improvement side of this process, writing down what skills people think they have and what they&#8217;d like to improve on. Forming scrum teams based on the work that needs doing rather than trying to fit the work to the team.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56020150de720a387100057f?track=Cloud&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Facebook&#8217;s Product Infrastructure</a></p>
+<p>Talked about how facebook is just a giant hack and they like it that way.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/55f8d661ea59c8f6140000fa?track=Security&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Making Hacking Child&#8217;s Play</a></p>
+<p>Really entertaining talk on how easy it is to hack poorly made sites.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56134896be772438b1000068?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Deploying and Scaling Microservices</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5608a7b720b411008f00005a?track=Software+Engineering&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">The Future of Software Engineering</a></p>
+<p>Good talk about the practice of Software Engineering. Everyone talks about how Software engineering isn&#8217;t real engineering, but when you delve in to it it turns out it is.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b16c77c84ed45c003a92?track=Cloud&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Designing for Failure: Scaling Uber&#8217;s Backend by Breaking Everything</a></p>
+<p>Interesting talk about failures that Uber has had and how their architecture ended up like it is.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Simpulls now available on Google Play</title>
+		<link>http://OFFLINEZIP.wpsho2015/12/03/simpulls-now-available-on-google-play/</link>
+		<pubDate>Wed, 02 Dec 2015 20:16:40 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=262</guid>
+		<description><![CDATA[Following up last month where I released Simpulls on iOS, Simpulls is now available on the other big platform, Google Play! https://play.google.com/store/apps/details?id=ironshod.simpulls Download it free and enjoy 🙂]]></description>
+				<content:encoded><![CDATA[<p>Following up last month where I released Simpulls on iOS, Simpulls is now available on the other big platform, Google Play!</p>
+<p><a href="https://play.google.com/store/apps/details?id=ironshod.simpulls">https://play.google.com/store/apps/details?id=ironshod.simpulls</a></p>
+<p><img class="alignnone size-medium wp-image-265" src="http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-300x300.gif" alt="playlaunch3d" width="300" height="300" srcset="http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-300x300.gif 300w, http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-150x150.gif 150w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<p>Download it free and enjoy <img src="https://s.w.org/images/core/emoji/11/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Converting mp4 to gif command line</title>
+		<link>http://OFFLINEZIP.wpsho2015/10/09/converting-mp4-to-gif-command-line/</link>
+		<pubDate>Fri, 09 Oct 2015 08:51:40 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=242</guid>
+		<description><![CDATA[Download ffmpeg ffmpeg -i clip.mp4 -vf palettegen palette.png ffmpeg -y -i clip.mp4 -i palette.png -lavfi paletteuse output.gif DONE! ref http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html You can also use giflossy to reduce the size https://github.com/pornel/giflossy]]></description>
+				<content:encoded><![CDATA[<p>Download <a href="https://www.ffmpeg.org/download.html">ffmpeg</a></p>
+<pre>ffmpeg -i clip.mp4 -vf palettegen palette.png
+ffmpeg -y -i clip.mp4 -i palette.png -lavfi paletteuse output.gif</pre>
+<p>DONE!</p>
+<p>ref <a href="http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html">http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html</a></p>
+<p>You can also use giflossy to reduce the size <a href="https://github.com/pornel/giflossy">https://github.com/pornel/giflossy</a></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Getting started with Go Microservices and Docker</title>
+		<link>http://OFFLINEZIP.wpsho2015/05/13/getting-started-with-go-microservices-and-docker/</link>
+		<pubDate>Wed, 13 May 2015 01:14:55 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=239</guid>
+		<description><![CDATA[What is a microservice First, you need to learn about the go language. Do these pages in order to learn the bare basics: https://tour.golang.org/ https://golang.org/doc/install https://golang.org/doc/code.html Then you&#8217;ll need to learn what docker is, read the understanding docker page: https://docs.docker.com/introduction/understanding-docker/ And then go install docker and run their hello-world example: https://docs.docker.com/installation/ Now hopefully you have the basics [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="http://martinfowler.com/articles/microservices.html">What is a microservice</a></p>
+<p>First, you need to learn about the go language. Do these pages in order to learn the bare basics:<br />
+<a href="https://tour.golang.org/">https://tour.golang.org/</a><br />
+<a href="https://golang.org/doc/install">https://golang.org/doc/install</a><br />
+<a href="https://golang.org/doc/code.html">https://golang.org/doc/code.html</a></p>
+<p>Then you&#8217;ll need to learn what docker is, read the understanding docker page:<br />
+<a href="https://docs.docker.com/introduction/understanding-docker/">https://docs.docker.com/introduction/understanding-docker/</a></p>
+<p>And then go install docker and run their hello-world example:<br />
+<a href="https://docs.docker.com/installation/">https://docs.docker.com/installation/</a></p>
+<p>Now hopefully you have the basics of go and docker down, so let&#8217;s grab an existing microservice and set it up.</p>
+<p>On your docker host run:</p>
+<pre>wget https://github.com/danzel/go-docker-playground/archive/master.tar.gz
+tar -zxf master.tar.gz
+cd go-docker-playground-master
+docker build --tag=danzel/go-docker-playground:1.0 .</pre>
+<p>This will fetch and then build this docker image which contains a simple web server. Now we can start it up with:</p>
+<pre>docker create --name=test -P danzel/go-docker-playground:1.0
+docker start test</pre>
+<p>Docker will automatically expose the server on a free port (Thanks to <a href="https://github.com/danzel/go-docker-playground/blob/master/Dockerfile#L10">EXPOSE</a> in the Dockerfile and <a href="https://docs.docker.com/reference/commandline/cli/#create">-P</a> in the docker create command line).<br />
+To see the port it has chosen:</p>
+<pre>docker ps</pre>
+<p>Then you should be able to open it by browsing to http://dockerhostip:port</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Why I haven&#8217;t merged your Pull Request</title>
+		<link>http://OFFLINEZIP.wpsho2015/03/26/why-i-havent-merged-your-pull-request/</link>
+		<pubDate>Wed, 25 Mar 2015 21:57:41 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=226</guid>
+		<description><![CDATA[When you have a popular repository on github, you can get a lot of Pull Requests. Some of these are good, some need work and some should never be merged. As the maintainer it is your job to figure out what category each PR fits in to, work with the original author to fix any [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>When you have a popular repository on github, you can get a lot of Pull Requests.</p>
+<p>Some of these are good, some need work and some should never be merged. As the maintainer it is your job to figure out what category each PR fits in to, work with the original author to fix any issues and finally do the merge.</p>
+<p>But how do you decide what PRs should actually end up in the project?</p>
+<p>The naive view would be to merge every feature. But what if that feature is only useful to one person? Is the person submitting that PR going to stick around to maintain their code in the future or (more likely) is maintaining that code going to fall to you? Is the feature even something that other users want?</p>
+<p>Every change adds extra weight to the project that must be carried and updated when any refactoring is done. These features also add complication to the project that can hinder further changes. Sometimes the best change is one that makes the project more extensible without adding any features itself.</p>
+<p>&nbsp;</p>
+<p>The way I deal with PRs that I&#8217;m not certain about is to let them sit. If someone else wants them they&#8217;ll hopefully come along and comment on them. Usually this works well, PRs that add or fix urgently needed things tend to have people on there asking for them to be merged.</p>
+<p>Sometimes your PR won&#8217;t get merged or looked at because the maintainer has other things to do. The people who maintain projects on Github are people, they only have a limited amount of time in their day and they probably have a job they should be doing.</p>
+<p>And finally sometimes the maintainer will miss the notifications so your PR never gets looked at. So don&#8217;t get too upset when things don&#8217;t get merged, wait a while</p>
+<p>&nbsp;</p>
+<p><strong>TLDR</strong></p>
+<h3>Ways to help your PR be merged</h3>
+<ul>
+<li>Explain why your change exists</li>
+<li>Add tests</li>
+<li>Fix build errors</li>
+<li>Change anything that is requested</li>
+<li>Bump it after a weeks in case the maintainer has missed it</li>
+</ul>
+<h3>Ways to help your PR not be merged</h3>
+<ul>
+<li>Break the build</li>
+<li>Do a large amount of changes</li>
+<li>Include automatically generated files</li>
+</ul>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Installing RetroArch on your iOS device as a developer without building from scratch</title>
+		<link>http://OFFLINEZIP.wpsho2015/02/01/installing-retroarch-on-your-ios-device-as-a-developer-without-building-from-scratch/</link>
+		<pubDate>Sun, 01 Feb 2015 06:59:04 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=216</guid>
+		<description><![CDATA[Grab the .deb file from their cydia repo http://www.libretro.com/index.php/downloads/ Extract it with &#8220;ar xv something.deb&#8221; (I had to use a linux machine for this) Create an Entitlements.plist like on here: http://stackoverflow.com/questions/15634188/resigning-an-ios-provisioning-profile (The example is missing &#60;/plist&#62; ) Replacing the application-identifier with one compatible with your signing cert. Save the following as r.b64 (This file gets created [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Grab the .deb file from their cydia repo http://www.libretro.com/index.php/downloads/</p>
+<p>Extract it with &#8220;ar xv something.deb&#8221; (I had to use a linux machine for this)</p>
+<p>Create an Entitlements.plist like on here:<br />
+http://stackoverflow.com/questions/15634188/resigning-an-ios-provisioning-profile<br />
+(The example is missing &lt;/plist&gt; )<br />
+Replacing the application-identifier with one compatible with your signing cert.</p>
+<p>Save the following as r.b64 (This file gets created automatically if you build the project)</p>
+<pre>nBsaXN0MDDRAQJVcnVsZXPTAwQFBgcMUi4qXxATUmVzb3VyY2VSdWxlcy5wbGlz
+dFpJbmZvLnBsaXN0CdIICQoGVndlaWdodFRvbWl0I0BZAAAAAAAACdIICQ0GI0Ak
+AAAAAAAACQgLERgbMTw9QklOV1hdZgAAAAAAAAEBAAAAAAAAAA8AAAAAAAAAAAAA
+AAAAAABn</pre>
+<p>Convert it into ResourceRules.plist with:</p>
+<pre>cat r.b64 | openssl base64 -d &gt; RetroArch.app/ResourceRules.plist</pre>
+<p>Run roughly these commands:</p>
+<p>$CODE_SIGN_IDENTITY &#8211; Your signing name, check &#8220;Keychain Access&#8221;</p>
+<p>$PROVISION &#8211; a copy of your provisioning profile file</p>
+<pre> codesign -fs "$CODE_SIGN_IDENTITY" RetroArch.app/modules/*.dylib
+ cp "$PROVISION" RetroArch.app/embedded.mobileprovision
+ cp ResourceRules.plist RetroArch.app/
+ codesign -f -s "$CODE_SIGN_IDENTITY" --resource-rules RetroArch.app/ResourceRules.plist --entitlements Entitlements.plist RetroArch.app
+ xcrun -sdk iphoneos PackageApplication "RetroArch.app" -o "RetroArch.ipa" --sign '$CODE_SIGN_IDENTITY' --embed "RetroArch.app/embedded.mobileprovision"</pre>
+<p>Install the IPA <img src="https://s.w.org/images/core/emoji/11/72x72/1f600.png" alt="😀" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>DSP TODO | Danzels Internets</title>
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+
+
+
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="../../../../../wp-content/themes/twentytwelve/style.css" type="text/css" media="all">
+
+<script type="text/javascript" src="../../../../../wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../../../../wp-includes/js/jquery/jquery-migrate.min.js"></script>
+
+
+
+
+
+
+
+
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f4c24b; }
+</style>
+</head>
+
+<body class="post-template-default single single-post postid-33 single-format-standard custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="../../../../../index.html" title="Danzels Internets" rel="home">Danzels Internets</a></h1>
+			<h2 class="site-description"></h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li><a href="../../../../../index.html">Home</a></li></ul></div>
+		</nav>
+
+			</header>
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+				
+	<article id="post-33" class="post-33 post type-post status-publish format-standard hentry category-dsp category-psp">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">DSP TODO</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>Here is the current DSP TODO list, if you think of something missing then please tell me 🙂<br>
+Mainly engine changes, going to leave the level making up to you guys 😉</p>
+<p>1.1 release should be next 1-2 days.<br>
+<strong>Update:</strong> Move more things to 1.1, <strong>hopefully</strong> can get it all in 🙂<br>
+Things in <em>italics</em> are done.</p>
+<p><strong>1.1 (AKA: Things that should of been in the first release)</strong><br>
+<em>Can’t play again if you quit in the middle of a wave bug</em><br>
+<em>Difficulty multiplier</em><br>
+<em>If level folder has its own pngs (acceptcampaign, cursor, sidebg_bot, sidebg_top, sidebg_selector, map_selector, font, fontbold, coin, tree) use them</em><br>
+<em>Show wave count</em><br>
+Fix crash bug with windows endlines.<br>
+Rebalance ‘river td’, add a few more waves.<br>
+Tell how to upgrade tower<br>
+<em>Fix Points</em><br>
+Better PSP controls.<br>
+Render Range rings when upgrading towers.<br>
+When selecting a Tower to buy, display all details parameters (range, time to fire, damage…)<br>
+Release Level making assistant tool (Defines Buildable map and Wave path)<br>
+“Save the house” : if ONE enemy reaches one given point, you loose</p>
+<p><strong>Maybe 1.1</strong><br>
+Destroy/Sell tower<br>
+Buy Lives<br>
+Release source code<br>
+Load enemies only when needed.<br>
+Skinnable game over / you win.<br>
+Fix tower placing to round better instead of truncating.<br>
+Show tower stats on mouse over<br>
+Deactivate menu (unload sprites, more memerysz) before full loading the level<br>
+Credits Screen<br>
+In-game sounds (Wav) for “Wave start”, “tower settlement”, “Game over” & “End game”<br>
+Draw all tower target range when settling a new tower (to see overlaps)<br>
+Better PNG size (wxh) checks (=> display error) when loading else it freezes<br>
+Fix InGame Menu, should return to previous state.</p>
+<p><strong>Nearish Future</strong><br>
+High Score screen<br>
+Possibility to define multiple waves with or not different routes, and with their own starttime<br>
+In-game music (mp3, mod)<br>
+Draw lifebar (option) below each enemy<br>
+Further Shot Types for Shot engine.<br>
+ – Missile particle trail (option)<br>
+Mini-image for campaign on first menu<br>
+Savedata (player name, scores, levels, stats…)<br>
+XML level, ennemy, tower configuration files (TinyXML is C++/OS independant)<br>
+ – Tilemap based level definition for easy level construction (TileStudio)<br>
+ – Bigger maps than 32×32<br>
+Define where is the turret roration center (X,Y) if not the middle, as the Starcraft Goliath turrent is on top of the legs, not on the middle<br>
+Turrent animation SpriteSheet when shooting<br>
+Configurable SpriteSheet frames (sometimes 4 frames are not enough…)<br>
+Make Slow change with tower levels (time and length of effect)<br>
+GlBits3 (More efficient rendering, more framerate!)<br>
+ – Investigate changing render functions to take floats instead of ints.<br>
+If you use an ordered insert into the instances lists, then when rendering it will be more efficient (render same sprite all at same time).<br>
+ – Towers and shots can use this, enemies not really as we rely on their ordering</p>
+<p><strong>Further Future</strong><br>
+Make menu hideable.<br>
+Online score tracking! / Level downloading<br>
+Render ground enemies THEN flying enemies.<br>
+Levels in Campaign.<br>
+ – Code to jump to level X<br>
+Wave paths :<br>
+ – Fixed (as you did path with step points)<br>
+ – Curve (sin, cos)<br>
+ – Collision detection (enemies will turn right is a wall is in front of them)<br>
+Add min range (o define a target reachable band instead of a target reachable disc)<br>
+Add “Miss ratio” (how often the shot missed the target)</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../../../../category/dsp/index.html" rel="category tag">DSP</a>, <a href="../../../../../category/psp/index.html" rel="category tag">PSP</a> on <a href="../../../../../2007/08/27/dsp-todo/index.html" title="9:52 pm" rel="bookmark"><time class="entry-date" datetime="2007-08-27T21:52:13+00:00">August 27, 2007</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../../../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="../../../../../2007/08/20/defence-station-portable/index.html" rel="prev"><span class="meta-nav">←</span> Defence Station Portable</a></span>
+					<span class="nav-next"><a href="../../../../../2007/08/29/defence-station-portable-11/index.html" rel="next">Defence Station Portable 1.1a <span class="meta-nav">→</span></a></span>
+				</nav>
+
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			12 thoughts on “<span>DSP TODO</span>”		</h2>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-16136">
+		<article id="comment-16136" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16136"><time datetime="2007-08-29T00:58:43+00:00">August 29, 2007 at 12:58 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Looks very good to me 😀 (okay okay easy)<br>
+I hope to see some “Maybe 1.1” features in the next release 😀</p>
+<p>I’ll try to release too a new St*rCraft campaign version too with the new features and some more levels, towers and monsters.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16229">
+		<article id="comment-16229" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://0.gravatar.com/avatar/f4eed1fdeea411ecc516af8678576fd8?s=44&d=mm&r=g" srcset="http://0.gravatar.com/avatar/f4eed1fdeea411ecc516af8678576fd8?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">NeonLightning</b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16229"><time datetime="2007-08-30T07:58:13+00:00">August 30, 2007 at 7:58 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>looking at those the more distant things are more interesting altho the present updates rock</p>
+<p>the thing i’m waiting for the most is tilestudio<br>
+so that i can make a crazy map then tell my friend here try this then he does the same like we do in pretty much any game with an editor</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16425">
+		<article id="comment-16425" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16425"><time datetime="2007-09-01T23:19:05+00:00">September 1, 2007 at 11:19 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Hello,</p>
+<p>I have customized TileStudio to generate DSP maps<br>
+get it there :<br>
+<a href="http://www.sendspace.com/file/7aw6vg" rel="nofollow">http://www.sendspace.com/file/7aw6vg</a></p>
+<p>Instructions :<br>
+1. Unzip the zip<br>
+2. Run TS.exe<br>
+3. open the river project as example :<br>
+File->Open then go to maps subdir and choose river.tsp<br>
+4. Click rivertd tab on the bottom<br>
+5. Do CTRL+Tab (Toggle map/Tile editor)<br>
+6. As you should see a map is composed of<br>
+32×32 tiles of 16×16<br>
+7. To set a tile as tower-able or not :<br>
+select with the ‘selection tool’ (dotted square) the block of tiles you want to set as tower-able (= you can put a tower there) then click on the left button 00<br>
+8. Set the Map Code (hex) as 23</p>
+<p>9. Do set non tower-able tiles, do the same but set the Map Code (hex) as 5F</p>
+<p>ALL tiles should have a map code</p>
+<p>10. Then go to Code menu, select ‘Generate Code’<br>
+11. in the maps dir, a level.map is created<br>
+12. in the windows explorer clic on convert.vbs<br>
+13. a level.txt file is created, you’ve got your map !<br>
+14. edit it to add other required parameters as usual</p>
+<p>have fun</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16426">
+		<article id="comment-16426" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16426"><time datetime="2007-09-01T23:24:59+00:00">September 1, 2007 at 11:24 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>a little screenshot of the editor</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16427">
+		<article id="comment-16427" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16427"><time datetime="2007-09-01T23:25:24+00:00">September 1, 2007 at 11:25 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p><a href="http://tmpstore.free.fr/DSP/tilestudio.png" rel="nofollow">http://tmpstore.free.fr/DSP/tilestudio.png</a></p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16430">
+		<article id="comment-16430" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16430"><time datetime="2007-09-02T00:10:36+00:00">September 2, 2007 at 12:10 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Seriously cool shazz!</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16438">
+		<article id="comment-16438" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16438"><time datetime="2007-09-02T02:37:33+00:00">September 2, 2007 at 2:37 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Eh eh Danzel, if I want to motivate you to use some XML configuration files I have to show you how powerful TileStudio is ! 😀</p>
+<p>and another new “I’d like DSP to…” : implement some A* path finding algo to have the enemies looking for a new path line in TD Desktop 😀</p>
+<p>really cool 😉</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16467">
+		<article id="comment-16467" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16467"><time datetime="2007-09-02T10:19:54+00:00">September 2, 2007 at 10:19 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Path finding was about the first idea I scrapped when I was designing DSP 🙂<br>
+I hope to see it materialize in the future, we will see 🙂<br>
+Will do some more investigation into tilestudio now I think 🙂</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16506">
+		<article id="comment-16506" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16506"><time datetime="2007-09-02T23:41:45+00:00">September 2, 2007 at 11:41 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Eh eh Danzel 😀 A* is cool 😀</p>
+<p>I have started another level based on Desktop TD for testing the future stuff 😉</p>
+<p>About the TileStudio, I have modified the convert.vbs to fill more data in the level.txt file.</p>
+<p>And I can write another tilestudio tutorial which works too even if you don’t want to use tiles and you already have a 512×512 picture… but I don’t know where to write it…</p>
+<p>Would be nice to have a website to share all of that…</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16509">
+		<article id="comment-16509" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16509"><time datetime="2007-09-02T23:45:10+00:00">September 2, 2007 at 11:45 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>DesktopTD like level, using TileStudio but without tiles, only with a 512×512 background image :</p>
+<p><a href="http://tmpstore.free.fr/DSP/desktop1.png" rel="nofollow">http://tmpstore.free.fr/DSP/desktop1.png</a><br>
+<a href="http://tmpstore.free.fr/DSP/desktop2.png" rel="nofollow">http://tmpstore.free.fr/DSP/desktop2.png</a></p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16539">
+		<article id="comment-16539" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16539"><time datetime="2007-09-03T09:25:00+00:00">September 3, 2007 at 9:25 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Jeeze you really want me to add path finding don’t you! 😛<br>
+I’m waiting on a Sourceforge project ATM, applied for it on Friday, so hopefully I’ll know soon.<br>
+They have wiki’s now so you’ll be able to put it up on there.<br>
+From my looks on the tilestudio front, it looks like it should be able to support planning the path in it? (for levels using paths)</p>
+<p>Once I have the project I’ll draft an XML schema for levels including support for multiple paths, pathfinding, etc. 🙂</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16564">
+		<article id="comment-16564" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../../2007/08/27/dsp-todo/comment-page-1/#comment-16564"><time datetime="2007-09-03T19:54:47+00:00">September 3, 2007 at 7:54 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>hiya Danzel !<br>
+For sure XML is boring to do but useful to everybody… and path finding is only a coder thing… 😀<br>
+I looked at it a few years ago when planing to write a demo (autosolved fifteen puzzle)… qutie interesting…</p>
+<p>And if you look at DesktopTD, the path finding has 2 usages :<br>
+– the creep uses it to compute the shortest way to reach their goal (and it is recomputed in realtime eachtime you remove/place a tower for each creep enemy<br>
+– if tiem you place a tower it checks that you did not block the creep path e.g. it is not a blocking tower</p>
+<p>Quite cool isn’t it ? There is a lot of opensource A* implementations… Videogame programming classic  😀 </p>
+<p>But don’t feel bad, do that you like 😀</p>
+<p>About TileStudio, it should be able to define enemies path, currently you’ve got 3 interesting stuffs :<br>
+– you can assign ONE mapcode to a 16×16 block : could be used to define a path step or as I did the # or _<br>
+– a tile has 3 layers<br>
+– you can define bounds to a tile (ounds are “walls” in your map that indicate where objects can move)</p>
+<p>so for basic path it could be used, for some more complex paths (mutiple paths fro example), it may becoem difficult. I guess another piece of software to only define (and test !) paths may be needed if we want an user friendly editor for it… Well let see that later 😀</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+		</ol>
+
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div>
+			
+		</div>
+	</div>
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+					<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="../../../../../2020/05/09/converting-to-static-site/index.html">Converting to static site</a>
+									</li>
+											<li>
+					<a href="../../../../../2018/02/09/how-to-get-the-apple-style-emojis-in-slack-on-windows/index.html">How to get the Apple style emojis back in Slack on Windows</a>
+									</li>
+											<li>
+					<a href="../../../../../2016/10/03/setting-up-obs-to-record-your-desktop/index.html">Setting up OBS to record your desktop</a>
+									</li>
+											<li>
+					<a href="../../../../../2016/06/07/massive-match/index.html">Massive Match</a>
+									</li>
+											<li>
+					<a href="../../../../../2015/12/11/yow-melbourne-2015/index.html">YOW! Melbourne 2015</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Previous Posts</h3>		<ul>
+			<li><a href="../../../../../2020/05/index.html">May 2020</a></li>
+	<li><a href="../../../../../2018/02/index.html">February 2018</a></li>
+	<li><a href="../../../../../2016/10/index.html">October 2016</a></li>
+	<li><a href="../../../../../2016/06/index.html">June 2016</a></li>
+	<li><a href="../../../../../2015/12/index.html">December 2015</a></li>
+	<li><a href="../../../../../2015/11/index.html">November 2015</a></li>
+	<li><a href="../../../../../2015/10/index.html">October 2015</a></li>
+	<li><a href="../../../../../2015/05/index.html">May 2015</a></li>
+	<li><a href="../../../../../2015/03/index.html">March 2015</a></li>
+	<li><a href="../../../../../2015/02/index.html">February 2015</a></li>
+	<li><a href="../../../../../2014/01/index.html">January 2014</a></li>
+	<li><a href="../../../../../2012/07/index.html">July 2012</a></li>
+	<li><a href="../../../../../2012/04/index.html">April 2012</a></li>
+	<li><a href="../../../../../2010/02/index.html">February 2010</a></li>
+	<li><a href="../../../../../2009/05/index.html">May 2009</a></li>
+	<li><a href="../../../../../2009/03/index.html">March 2009</a></li>
+	<li><a href="../../../../../2009/02/index.html">February 2009</a></li>
+	<li><a href="../../../../../2009/01/index.html">January 2009</a></li>
+	<li><a href="../../../../../2008/12/index.html">December 2008</a></li>
+	<li><a href="../../../../../2008/11/index.html">November 2008</a></li>
+	<li><a href="../../../../../2008/10/index.html">October 2008</a></li>
+	<li><a href="../../../../../2008/08/index.html">August 2008</a></li>
+	<li><a href="../../../../../2008/07/index.html">July 2008</a></li>
+	<li><a href="../../../../../2008/03/index.html">March 2008</a></li>
+	<li><a href="../../../../../2008/01/index.html">January 2008</a></li>
+	<li><a href="../../../../../2007/12/index.html">December 2007</a></li>
+	<li><a href="../../../../../2007/11/index.html">November 2007</a></li>
+	<li><a href="../../../../../2007/09/index.html">September 2007</a></li>
+	<li><a href="../../../../../2007/08/index.html">August 2007</a></li>
+	<li><a href="../../../../../2007/06/index.html">June 2007</a></li>
+	<li><a href="../../../../../2007/05/index.html">May 2007</a></li>
+	<li><a href="../../../../../2007/03/index.html">March 2007</a></li>
+	<li><a href="../../../../../2007/02/index.html">February 2007</a></li>
+	<li><a href="../../../../../2007/01/index.html">January 2007</a></li>
+	<li><a href="../../../../../2006/12/index.html">December 2006</a></li>
+	<li><a href="../../../../../2006/11/index.html">November 2006</a></li>
+	<li><a href="../../../../../2006/08/index.html">August 2006</a></li>
+	<li><a href="../../../../../2006/06/index.html">June 2006</a></li>
+	<li><a href="../../../../../2006/05/index.html">May 2006</a></li>
+	<li><a href="../../../../../2006/04/index.html">April 2006</a></li>
+	<li><a href="../../../../../2006/03/index.html">March 2006</a></li>
+	<li><a href="../../../../../2006/02/index.html">February 2006</a></li>
+	<li><a href="../../../../../2006/01/index.html">January 2006</a></li>
+	<li><a href="../../../../../2005/11/index.html">November 2005</a></li>
+	<li><a href="../../../../../2005/10/index.html">October 2005</a></li>
+	<li><a href="../../../../../2005/09/index.html">September 2005</a></li>
+		</ul>
+		</aside><aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Mates</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://ironshod.co.nz">Ironshod iPhone Games</a></li>
+
+	</ul>
+</aside>
+		</div>
+		</div>
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+		</div>
+	</footer>
+</div>
+
+<script type="text/javascript" src="../../../../../wp-content/themes/twentytwelve/js/navigation.js"></script>
+</body>
+</html>

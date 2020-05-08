@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<head>
+<title>Peldet Official Site</title>
+<style type="text/css">
+.head {
+	font-size:1.1em
+}
+</style>
+</head>
+<body>
+Peldet 0.8b is currently the Latest Version.<br>
+<a href="pics.php">Screenshots of peldet HERE</a><br><br>
+<span class="head">Peldet 0.8b (cygwinsux Edition): <a href="peldet-0.8b-src.tar.gz">Source</a> <a href="peldet-0.8b.tar.gz">Executables</a></span><br>
+Did some additions to get connecting to cygwins telnetd working.
+Some big changes to the renderer, now it is called directly instead of with message passing. This gives some big speed ups (libcaca mplayer is almost compeletely smooth at default speed). I was hoping to hold this for the next version, but as my CVS server machine has died I'm including it now.
+This may lead to a crash as I haven't thread safed it yet, but malloc/free is called much less, so there shouldnt be crashes related to that anymore.
+<br><br>
+<span class="head">Peldet 0.8a (working++ Edition): <a href="peldet-0.8a-src.tar.gz">Source</a> <a href="peldet-0.8a.tar.gz">Executables</a></span><br>
+Fixed the irc bug I added in 0.8 (One whole line, the _only_ line that changed in the irc code between 0.7 and 0.8 lol)<br><br>
+<span class="head">Peldet 0.8 (dapples_ Edition): <a href="peldet-0.8-src.tar.gz">Source</a> <a href="peldet-0.8.tar.gz">Executables</a></span><br>
+fixed some p_sprint bugs, 8/9 were backwards in the code, x is incorrect in the image.<br>
+Much better telnet support, I've implemented a vt100 emulator, currently it lacks a few features and seems to have some bugs, but it is good for most programs.<br>
+This means ofcourse that you can connect to a telnetd and run all your favorite console linux apps.<br>
+I recommend links (OMG WEB BROWSER ON PSP OMG HAX) and BitchX (Much better IRC than in peldet currently).<br>
+There is a few bugs in the vt100 emulation, nano doesnt work with the default term, use TERM=vt100.<br>
+I had colors in nethack when I was telnetting to a debian sarge machine, but it doesnt have them on my gentoo box... I'll investigate how its figuring out if to use them and fix it :D<br>
+Its also quite difficult to play nethack at the moment, I plan to make a custom keyboard setting for it to make it more playable.<br><br>
+<br>
+
+
+
+Old Versions Below...<br>
+<span class="head">Peldet 0.7 (DuEy Edition): <a href="peldet-0.7-src.tar.gz">Source</a> <a href="peldet-0.7.tar.gz">Executables</a></span><br>
+The codebase has been really thrashed to get in multiple protocol support :)<br>
+There is still a bit to do, but it can wait for the next version.<br>
+IRC SUPPORT :O some limitations<br>
+When connecting to wifi it will keep trying untill it gets on.<br>
+Scrollable screen. (Use the analog stick)<br>
+Lots more I forget zzzzz.<br>
+Background menu image by DuEy :)<br>
+Read the README for more details :)<br><br>
+<br>
+<span class="head">PSP Telnet 0.6: <a href="peldet-0.6-src.tar.gz">Source</a> <a href="peldet-0.6.tar.gz">Executables</a></span><br>
+Renderer now uses Gu for Rendering (No more flickering Keyboard)<br>
+Big cleanup of code<br>
+<br>
+<span class="head">PSP Telnet 0.5: <a href="peldet-0.5-src.tar.gz">Source</a> <a href="peldet-0.5.tar.gz">Executables</a></span><br>
+Added more escape sequences (Ascii Starwars seems completely fine :)<br>
+Added dns<br>
+<br>
+<span class="head">PSP Telnet 0.4: <a href="peldet-0.4-src.tar.gz">Source</a> <a href="peldet-0.4.tar.gz">Executables</a></span><br>
+The display now uses a font I drew, this makes the display the proper 80x24! :)<br>
+the reset screen escape sequence is supported ( ^[H ), this makes ascii starwars almost viewable, check it out!<br>
+<br>
+<span class="head">PSP Telnet 0.3: <a href="peldet-0.3-src.tar.gz">Source</a> <a href="peldet-0.3.tar.gz">Executables</a></span><br>
+You can now display the psprint keyboard by pressing R (this isnt done in a very good way, it flickers when it needs to write to the screen)<br>
+Some error messages got added instead of just error codes<br>
+<br>
+<span class="head">PSP Telnet 0.2: <a href="peldet-0.2-src.tar.gz">Source</a> <a href="peldet-0.2.tar.gz">Executables</a></span><br>
+Now with The ability to chose which wifi to connect to, chose where to connect, and quit :)<br>
+Much better than the previous version.<br><br>
+<span class="head">PSP Telnet (0.01): <a href="src.tar.gz">Source</a> <a href="exe.tar.gz">exe</a></span><br>
+Install like normal homebrew, it uses the first wifi connection set up in your wireless settings to connect.<br>
+Its currently rigged up to automatically connect to <a href="http://www.rod.org">RoD</a><br><br>
+Keyboard is controlled with p-sprint <a href="http://www.niwra.nl/psp/p-sprint-c/doc/index.htm">Learn how to use it here</a>
+<br>
+</body></html>

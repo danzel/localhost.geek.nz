@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>Comments on: DSP TODO</title>
+	<atom:link href="http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/feed/" rel="self" type="application/rss+xml" />
+	<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/</link>
+	<description></description>
+	<lastBuildDate>Mon, 28 Oct 2019 20:03:27 +0000</lastBuildDate>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.14</generator>
+	<item>
+		<title>By: Shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16564</link>
+		<dc:creator><![CDATA[Shazz]]></dc:creator>
+		<pubDate>Mon, 03 Sep 2007 07:54:47 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16564</guid>
+		<description><![CDATA[hiya Danzel !
+For sure XML is boring to do but useful to everybody... and path finding is only a coder thing... :D
+I looked at it a few years ago when planing to write a demo (autosolved fifteen puzzle)... qutie interesting...
+
+And if you look at DesktopTD, the path finding has 2 usages :
+- the creep uses it to compute the shortest way to reach their goal (and it is recomputed in realtime eachtime you remove/place a tower for each creep enemy
+- if tiem you place a tower it checks that you did not block the creep path e.g. it is not a blocking tower
+
+Quite cool isn&#039;t it ? There is a lot of opensource A* implementations... Videogame programming classic  :D 
+
+But don&#039;t feel bad, do that you like :D
+
+About TileStudio, it should be able to define enemies path, currently you&#039;ve got 3 interesting stuffs :
+- you can assign ONE mapcode to a 16x16 block : could be used to define a path step or as I did the # or _
+- a tile has 3 layers
+- you can define bounds to a tile (ounds are &quot;walls&quot; in your map that indicate where objects can move)
+
+so for basic path it could be used, for some more complex paths (mutiple paths fro example), it may becoem difficult. I guess another piece of software to only define (and test !) paths may be needed if we want an user friendly editor for it... Well let see that later :D]]></description>
+		<content:encoded><![CDATA[<p>hiya Danzel !<br />
+For sure XML is boring to do but useful to everybody&#8230; and path finding is only a coder thing&#8230; 😀<br />
+I looked at it a few years ago when planing to write a demo (autosolved fifteen puzzle)&#8230; qutie interesting&#8230;</p>
+<p>And if you look at DesktopTD, the path finding has 2 usages :<br />
+&#8211; the creep uses it to compute the shortest way to reach their goal (and it is recomputed in realtime eachtime you remove/place a tower for each creep enemy<br />
+&#8211; if tiem you place a tower it checks that you did not block the creep path e.g. it is not a blocking tower</p>
+<p>Quite cool isn&#8217;t it ? There is a lot of opensource A* implementations&#8230; Videogame programming classic  😀 </p>
+<p>But don&#8217;t feel bad, do that you like 😀</p>
+<p>About TileStudio, it should be able to define enemies path, currently you&#8217;ve got 3 interesting stuffs :<br />
+&#8211; you can assign ONE mapcode to a 16&#215;16 block : could be used to define a path step or as I did the # or _<br />
+&#8211; a tile has 3 layers<br />
+&#8211; you can define bounds to a tile (ounds are &#8220;walls&#8221; in your map that indicate where objects can move)</p>
+<p>so for basic path it could be used, for some more complex paths (mutiple paths fro example), it may becoem difficult. I guess another piece of software to only define (and test !) paths may be needed if we want an user friendly editor for it&#8230; Well let see that later 😀</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Danzel</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16539</link>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+		<pubDate>Sun, 02 Sep 2007 21:25:00 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16539</guid>
+		<description><![CDATA[Jeeze you really want me to add path finding don&#039;t you! :P
+I&#039;m waiting on a Sourceforge project ATM, applied for it on Friday, so hopefully I&#039;ll know soon.
+They have wiki&#039;s now so you&#039;ll be able to put it up on there.
+From my looks on the tilestudio front, it looks like it should be able to support planning the path in it? (for levels using paths)
+
+Once I have the project I&#039;ll draft an XML schema for levels including support for multiple paths, pathfinding, etc. :)]]></description>
+		<content:encoded><![CDATA[<p>Jeeze you really want me to add path finding don&#8217;t you! 😛<br />
+I&#8217;m waiting on a Sourceforge project ATM, applied for it on Friday, so hopefully I&#8217;ll know soon.<br />
+They have wiki&#8217;s now so you&#8217;ll be able to put it up on there.<br />
+From my looks on the tilestudio front, it looks like it should be able to support planning the path in it? (for levels using paths)</p>
+<p>Once I have the project I&#8217;ll draft an XML schema for levels including support for multiple paths, pathfinding, etc. 🙂</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16509</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sun, 02 Sep 2007 11:45:10 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16509</guid>
+		<description><![CDATA[DesktopTD like level, using TileStudio but without tiles, only with a 512x512 background image :
+
+http://tmpstore.free.fr/DSP/desktop1.png
+http://tmpstore.free.fr/DSP/desktop2.png]]></description>
+		<content:encoded><![CDATA[<p>DesktopTD like level, using TileStudio but without tiles, only with a 512&#215;512 background image :</p>
+<p><a href="http://tmpstore.free.fr/DSP/desktop1.png" rel="nofollow">http://tmpstore.free.fr/DSP/desktop1.png</a><br />
+<a href="http://tmpstore.free.fr/DSP/desktop2.png" rel="nofollow">http://tmpstore.free.fr/DSP/desktop2.png</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16506</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sun, 02 Sep 2007 11:41:45 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16506</guid>
+		<description><![CDATA[Eh eh Danzel :D A* is cool :D
+
+I have started another level based on Desktop TD for testing the future stuff ;-)
+
+About the TileStudio, I have modified the convert.vbs to fill more data in the level.txt file.
+
+And I can write another tilestudio tutorial which works too even if you don&#039;t want to use tiles and you already have a 512x512 picture... but I don&#039;t know where to write it...
+
+Would be nice to have a website to share all of that...]]></description>
+		<content:encoded><![CDATA[<p>Eh eh Danzel 😀 A* is cool 😀</p>
+<p>I have started another level based on Desktop TD for testing the future stuff 😉</p>
+<p>About the TileStudio, I have modified the convert.vbs to fill more data in the level.txt file.</p>
+<p>And I can write another tilestudio tutorial which works too even if you don&#8217;t want to use tiles and you already have a 512&#215;512 picture&#8230; but I don&#8217;t know where to write it&#8230;</p>
+<p>Would be nice to have a website to share all of that&#8230;</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Danzel</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16467</link>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 22:19:54 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16467</guid>
+		<description><![CDATA[Path finding was about the first idea I scrapped when I was designing DSP :)
+I hope to see it materialize in the future, we will see :)
+Will do some more investigation into tilestudio now I think :)]]></description>
+		<content:encoded><![CDATA[<p>Path finding was about the first idea I scrapped when I was designing DSP 🙂<br />
+I hope to see it materialize in the future, we will see 🙂<br />
+Will do some more investigation into tilestudio now I think 🙂</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16438</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 14:37:33 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16438</guid>
+		<description><![CDATA[Eh eh Danzel, if I want to motivate you to use some XML configuration files I have to show you how powerful TileStudio is ! :D
+
+and another new &quot;I&#039;d like DSP to...&quot; : implement some A* path finding algo to have the enemies looking for a new path line in TD Desktop :D
+
+really cool ;-)]]></description>
+		<content:encoded><![CDATA[<p>Eh eh Danzel, if I want to motivate you to use some XML configuration files I have to show you how powerful TileStudio is ! 😀</p>
+<p>and another new &#8220;I&#8217;d like DSP to&#8230;&#8221; : implement some A* path finding algo to have the enemies looking for a new path line in TD Desktop 😀</p>
+<p>really cool 😉</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: Danzel</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16430</link>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 12:10:36 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16430</guid>
+		<description><![CDATA[Seriously cool shazz!]]></description>
+		<content:encoded><![CDATA[<p>Seriously cool shazz!</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16427</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 11:25:24 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16427</guid>
+		<description><![CDATA[http://tmpstore.free.fr/DSP/tilestudio.png]]></description>
+		<content:encoded><![CDATA[<p><a href="http://tmpstore.free.fr/DSP/tilestudio.png" rel="nofollow">http://tmpstore.free.fr/DSP/tilestudio.png</a></p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16426</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 11:24:59 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16426</guid>
+		<description><![CDATA[a little screenshot of the editor
+
+]]></description>
+		<content:encoded><![CDATA[<p>a little screenshot of the editor</p>
+]]></content:encoded>
+	</item>
+	<item>
+		<title>By: shazz</title>
+		<link>http://OFFLINEZIP.wpsho2007/08/27/dsp-todo/comment-page-1/#comment-16425</link>
+		<dc:creator><![CDATA[shazz]]></dc:creator>
+		<pubDate>Sat, 01 Sep 2007 11:19:05 +0000</pubDate>
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=33#comment-16425</guid>
+		<description><![CDATA[Hello,
+
+I have customized TileStudio to generate DSP maps
+get it there :
+http://www.sendspace.com/file/7aw6vg
+
+Instructions :
+1. Unzip the zip
+2. Run TS.exe
+3. open the river project as example :
+File-&#062;Open then go to maps subdir and choose river.tsp
+4. Click rivertd tab on the bottom
+5. Do CTRL+Tab (Toggle map/Tile editor)
+6. As you should see a map is composed of 
+32x32 tiles of 16x16
+7. To set a tile as tower-able or not :
+select with the &#039;selection tool&#039; (dotted square) the block of tiles you want to set as tower-able (= you can put a tower there) then click on the left button 00
+8. Set the Map Code (hex) as 23
+
+9. Do set non tower-able tiles, do the same but set the Map Code (hex) as 5F
+
+ALL tiles should have a map code
+
+10. Then go to Code menu, select &#039;Generate Code&#039;
+11. in the maps dir, a level.map is created
+12. in the windows explorer clic on convert.vbs
+13. a level.txt file is created, you&#039;ve got your map !
+14. edit it to add other required parameters as usual
+
+have fun]]></description>
+		<content:encoded><![CDATA[<p>Hello,</p>
+<p>I have customized TileStudio to generate DSP maps<br />
+get it there :<br />
+<a href="http://www.sendspace.com/file/7aw6vg" rel="nofollow">http://www.sendspace.com/file/7aw6vg</a></p>
+<p>Instructions :<br />
+1. Unzip the zip<br />
+2. Run TS.exe<br />
+3. open the river project as example :<br />
+File-&gt;Open then go to maps subdir and choose river.tsp<br />
+4. Click rivertd tab on the bottom<br />
+5. Do CTRL+Tab (Toggle map/Tile editor)<br />
+6. As you should see a map is composed of<br />
+32&#215;32 tiles of 16&#215;16<br />
+7. To set a tile as tower-able or not :<br />
+select with the &#8216;selection tool&#8217; (dotted square) the block of tiles you want to set as tower-able (= you can put a tower there) then click on the left button 00<br />
+8. Set the Map Code (hex) as 23</p>
+<p>9. Do set non tower-able tiles, do the same but set the Map Code (hex) as 5F</p>
+<p>ALL tiles should have a map code</p>
+<p>10. Then go to Code menu, select &#8216;Generate Code&#8217;<br />
+11. in the maps dir, a level.map is created<br />
+12. in the windows explorer clic on convert.vbs<br />
+13. a level.txt file is created, you&#8217;ve got your map !<br />
+14. edit it to add other required parameters as usual</p>
+<p>have fun</p>
+]]></content:encoded>
+	</item>
+</channel>
+</rss>

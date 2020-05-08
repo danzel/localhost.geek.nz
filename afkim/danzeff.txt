@@ -1,0 +1,15 @@
+The danzeff keyboard is an OSK, mainly controlled by the analog stick.
+
+Use the analog stick to select which square to chose from, and then press the button (X O [] /\) in the direction of the letter you want to input.
+
+To switch into numbers mode Tap the L Shoulder.
+To get capital Letters hold the R shoulder while in letters input.
+To get a complete set of extra characters, hold down R shoulder while in numbers mode.
+
+Other special keys:
+Digital down  -> enter
+Digital up    -> delete
+Digital left  -> move left
+Digital right -> move right
+Select        -> menu in afkim
+Start         -> switch from chat to contacts list in afkim

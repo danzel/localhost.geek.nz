@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Danzels Internets | Page 2</title>
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+
+
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="../../wp-content/themes/twentytwelve/style.css" type="text/css" media="all">
+
+<script type="text/javascript" src="../../wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../wp-includes/js/jquery/jquery-migrate.min.js"></script>
+
+
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f4c24b; }
+</style>
+</head>
+
+<body class="home blog paged custom-background paged-2 custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="../../index.html" title="Danzels Internets" rel="home">Danzels Internets</a></h1>
+			<h2 class="site-description"></h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li><a href="../../index.html">Home</a></li></ul></div>
+		</nav>
+
+			</header>
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+		
+										
+	<article id="post-239" class="post-239 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2015/05/13/getting-started-with-go-microservices-and-docker/index.html" rel="bookmark">Getting started with Go Microservices and Docker</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p><a href="http://martinfowler.com/articles/microservices.html">What is a microservice</a></p>
+<p>First, you need to learn about the go language. Do these pages in order to learn the bare basics:<br>
+<a href="https://tour.golang.org/">https://tour.golang.org/</a><br>
+<a href="https://golang.org/doc/install">https://golang.org/doc/install</a><br>
+<a href="https://golang.org/doc/code.html">https://golang.org/doc/code.html</a></p>
+<p>Then you’ll need to learn what docker is, read the understanding docker page:<br>
+<a href="https://docs.docker.com/introduction/understanding-docker/">https://docs.docker.com/introduction/understanding-docker/</a></p>
+<p>And then go install docker and run their hello-world example:<br>
+<a href="https://docs.docker.com/installation/">https://docs.docker.com/installation/</a></p>
+<p>Now hopefully you have the basics of go and docker down, so let’s grab an existing microservice and set it up.</p>
+<p>On your docker host run:</p>
+<pre>wget https://github.com/danzel/go-docker-playground/archive/master.tar.gz
+tar -zxf master.tar.gz
+cd go-docker-playground-master
+docker build --tag=danzel/go-docker-playground:1.0 .</pre>
+<p>This will fetch and then build this docker image which contains a simple web server. Now we can start it up with:</p>
+<pre>docker create --name=test -P danzel/go-docker-playground:1.0
+docker start test</pre>
+<p>Docker will automatically expose the server on a free port (Thanks to <a href="https://github.com/danzel/go-docker-playground/blob/master/Dockerfile#L10">EXPOSE</a> in the Dockerfile and <a href="https://docs.docker.com/reference/commandline/cli/#create">-P</a> in the docker create command line).<br>
+To see the port it has chosen:</p>
+<pre>docker ps</pre>
+<p>Then you should be able to open it by browsing to http://dockerhostip:port</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2015/05/13/getting-started-with-go-microservices-and-docker/index.html" title="1:14 pm" rel="bookmark"><time class="entry-date" datetime="2015-05-13T13:14:55+00:00">May 13, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-226" class="post-226 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2015/03/26/why-i-havent-merged-your-pull-request/index.html" rel="bookmark">Why I haven’t merged your Pull Request</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>When you have a popular repository on github, you can get a lot of Pull Requests.</p>
+<p>Some of these are good, some need work and some should never be merged. As the maintainer it is your job to figure out what category each PR fits in to, work with the original author to fix any issues and finally do the merge.</p>
+<p>But how do you decide what PRs should actually end up in the project?</p>
+<p>The naive view would be to merge every feature. But what if that feature is only useful to one person? Is the person submitting that PR going to stick around to maintain their code in the future or (more likely) is maintaining that code going to fall to you? Is the feature even something that other users want?</p>
+<p>Every change adds extra weight to the project that must be carried and updated when any refactoring is done. These features also add complication to the project that can hinder further changes. Sometimes the best change is one that makes the project more extensible without adding any features itself.</p>
+<p> </p>
+<p>The way I deal with PRs that I’m not certain about is to let them sit. If someone else wants them they’ll hopefully come along and comment on them. Usually this works well, PRs that add or fix urgently needed things tend to have people on there asking for them to be merged.</p>
+<p>Sometimes your PR won’t get merged or looked at because the maintainer has other things to do. The people who maintain projects on Github are people, they only have a limited amount of time in their day and they probably have a job they should be doing.</p>
+<p>And finally sometimes the maintainer will miss the notifications so your PR never gets looked at. So don’t get too upset when things don’t get merged, wait a while</p>
+<p> </p>
+<p><strong>TLDR</strong></p>
+<h3>Ways to help your PR be merged</h3>
+<ul>
+<li>Explain why your change exists</li>
+<li>Add tests</li>
+<li>Fix build errors</li>
+<li>Change anything that is requested</li>
+<li>Bump it after a weeks in case the maintainer has missed it</li>
+</ul>
+<h3>Ways to help your PR not be merged</h3>
+<ul>
+<li>Break the build</li>
+<li>Do a large amount of changes</li>
+<li>Include automatically generated files</li>
+</ul>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2015/03/26/why-i-havent-merged-your-pull-request/index.html" title="9:57 am" rel="bookmark"><time class="entry-date" datetime="2015-03-26T09:57:41+00:00">March 26, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-216" class="post-216 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2015/02/01/installing-retroarch-on-your-ios-device-as-a-developer-without-building-from-scratch/index.html" rel="bookmark">Installing RetroArch on your iOS device as a developer without building from scratch</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>Grab the .deb file from their cydia repo http://www.libretro.com/index.php/downloads/</p>
+<p>Extract it with “ar xv something.deb” (I had to use a linux machine for this)</p>
+<p>Create an Entitlements.plist like on here:<br>
+http://stackoverflow.com/questions/15634188/resigning-an-ios-provisioning-profile<br>
+(The example is missing </plist> )<br>
+Replacing the application-identifier with one compatible with your signing cert.</p>
+<p>Save the following as r.b64 (This file gets created automatically if you build the project)</p>
+<pre>nBsaXN0MDDRAQJVcnVsZXPTAwQFBgcMUi4qXxATUmVzb3VyY2VSdWxlcy5wbGlz
+dFpJbmZvLnBsaXN0CdIICQoGVndlaWdodFRvbWl0I0BZAAAAAAAACdIICQ0GI0Ak
+AAAAAAAACQgLERgbMTw9QklOV1hdZgAAAAAAAAEBAAAAAAAAAA8AAAAAAAAAAAAA
+AAAAAABn</pre>
+<p>Convert it into ResourceRules.plist with:</p>
+<pre>cat r.b64 | openssl base64 -d > RetroArch.app/ResourceRules.plist</pre>
+<p>Run roughly these commands:</p>
+<p>$CODE_SIGN_IDENTITY – Your signing name, check “Keychain Access”</p>
+<p>$PROVISION – a copy of your provisioning profile file</p>
+<pre> codesign -fs "$CODE_SIGN_IDENTITY" RetroArch.app/modules/*.dylib
+ cp "$PROVISION" RetroArch.app/embedded.mobileprovision
+ cp ResourceRules.plist RetroArch.app/
+ codesign -f -s "$CODE_SIGN_IDENTITY" --resource-rules RetroArch.app/ResourceRules.plist --entitlements Entitlements.plist RetroArch.app
+ xcrun -sdk iphoneos PackageApplication "RetroArch.app" -o "RetroArch.ipa" --sign '$CODE_SIGN_IDENTITY' --embed "RetroArch.app/embedded.mobileprovision"</pre>
+<p>Install the IPA 😀</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2015/02/01/installing-retroarch-on-your-ios-device-as-a-developer-without-building-from-scratch/index.html" title="6:59 pm" rel="bookmark"><time class="entry-date" datetime="2015-02-01T18:59:04+00:00">February 1, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-214" class="post-214 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2015/02/01/installing-xbmc-well-spmc-as-boot-on-ouya/index.html" rel="bookmark">Installing XBMC (Well, SPMC) as boot on Ouya</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<ol>
+<li>Update OUYA to latest OS (not really required, but whatever).</li>
+<li>Log in</li>
+<li>Enter payment details (bypass http://ouyaforum.com/showthread.php?4213-How-To-Bypass-Rhe-Payment-Card-Requirement-With-A-Test-Card-Number)</li>
+</ol>
+<p>Future stuff can be installed by going to make, upload. Then open that web url from a PC and drag and drop the apk files on.</p>
+<ol>
+<li>Install KingRoot http://ouyabrew.com/updated-one-click-root/</li>
+<li>Install SuperUser (probably not actually needed) http://www.s-config.com/root-the-ouya-google-play/</li>
+<li>Install busybox http://www.s-config.com/root-the-ouya-google-play/</li>
+<li>Install ssh server (for remote file access) https://play.google.com/store/apps/details?id=web.oss.sshsftpDaemon</li>
+<li>Install SPMC launcher version http://spmc.semperpax.com/</li>
+</ol>
+<p>Now when you reboot OUYA will ask if you want to boot ouya or SPMC.</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2015/02/01/installing-xbmc-well-spmc-as-boot-on-ouya/index.html" title="1:09 pm" rel="bookmark"><time class="entry-date" datetime="2015-02-01T13:09:54+00:00">February 1, 2015</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-137" class="post-137 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2014/01/06/what-ive-been-up-to-lately/index.html" rel="bookmark">What I’ve been up to lately</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>I’ve spent my holiday break working on a blog series on modern RTS game techniques.</p>
+<p>To start it off I’ve done a Flow Field pathfinding implementation, this is the sort of pathing that Supreme Commander 2 and Planetary Annihilation use.<br>
+It’s not as sophisticated as their yet, but its only a few days work 🙂</p>
+<p>Check it out <a title="http://howtorts.github.io/" href="http://howtorts.github.io/" target="_blank">http://howtorts.github.io/</a></p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2014/01/06/what-ive-been-up-to-lately/index.html" title="4:29 pm" rel="bookmark"><time class="entry-date" datetime="2014-01-06T16:29:21+00:00">January 6, 2014</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-135" class="post-135 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2012/07/25/diablo-3-hardercore-mode/index.html" rel="bookmark">Diablo 3 – Hardercore mode</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>D3 too easy? Try Hardercore mode.</p>
+<p>Start a new character on Hardcore mode. The first thing you want to do is throw away your starting weapon.</p>
+<p>From now on, the first item that you find of each type is the item you must use for that slot, if you find a nice magic sword, hurray! If you find a blunt dagger as your first weapon, boo hoo.<br>
+At the start of each act you can choose to throw away any items you don’t want. Again the first item you find of its type is the only one you can put in its slot.</p>
+<p>To make this a bit easier – at the start choose:<br>
+– One/Two Handed Weapon.<br>
+– Melee/Ranged Weapon.<br>
+You may only equip this weapon type.</p>
+<p>Possible Rewards:<br>
+Beating each act boss – may replace an item with one of the items they dropped.<br>
+Gaining the Blacksmith – A single use of his crafting straight away, you must use what he makes.</p>
+<p>Obviously no Auction house action (selling is allowed), no buying from NPCs and no twinking from your other characters.</p>
+<p>These modified rules are pretty close to first item only ironman.</p>
+<p>I’m going to give this a go now with a Demon Hunter. Let’s see how long I survive 🙂<br>
+I’ve chosen one hand ranged as my weapon type which I believe will give me an advantage so long as I survive till I get one. First 1 hand xbow is req level 5 , ilvl 7.</p>
+<p> </p>
+<p>Level 2 – Impale. It works without a weapon, no idea how but I’m glad, this gives me my first ranged attack!</p>
+<p>First Item – Thick Sash. Off to a good Start!</p>
+<p>Second Item – Inferior Gloves 🙁</p>
+<p>Thick Cloth Tunic, yeah boi!!</p>
+<p>Killing the horder finds me my first magic item, “Hand axe of the Snake”, it’s not for me:( I do however get a Thick Buckler to up my defence!</p>
+<p>Cloth Pants! No Thick mod on these ones, but at least I have more armor.</p>
+<p>The boss in adrias Hut finds me a magic two handed bow with +dmg, +attack speed. Not for me though!</p>
+<p>I don’t know if it’s on purpose, but I just realised my character punches with her shield arm more often than her free hand.</p>
+<p>Found +4% run speed shoes in a chest. Woot!!!</p>
+<p>Took down my first boss pack: teleporting ravenous dead (zombies), not too hard, just throw a lot of punches and use impale for extra damage.</p>
+<p>Level 4! Caltrops finally, hope they work like they did in SC 🙂</p>
+<p>Very slowly took down a blue pack of teleporter carrion bats, almost level 5!<br>
+Damaged bracers, almost got all the slots filled 🙂</p>
+<p>Made it to level 7, nothing interesting to report except that elite mobs take forever to kill. Am just at the cemetery, these are going to take a while to clear, hope I can finally find a weapon in them!</p>
+<p>Smashing the infernal orb trap (after running away from the skeletons) gets me to level 8 and drops a magical hat (I have no hat yet) +6% magic find woo!!! Smoke screen hurrah!</p>
+<p>Crown rescued, crypts took a long time. Killing enemies is now officially taking waaaay too long.</p>
+<p>Templar rescued, that took a bit. Still punching and impaling enemies (summoners are such a pain). Hit level 9, yay extra skill slot for smoke screen.</p>
+<p>Killed a harvester (exploding fatty) in cathedral level 4, he dropped a Fine Simple Hand Crowssbow. +20% damage and I finally have a weapon, WOOT!</p>
+<p>Found my first treasure gob, took him down with rapid fire.</p>
+<p>Level 10, enemies are pretty easy now. Packs of burrying leapers hurt a lot however, few close calls there.</p>
+<p>Lots of boring bits in here skipped, no interesting things happen.</p>
+<p>Spider caves are quite hard, first near death experience with a waller spider pack. double smoke screen luckily gets me out of there.</p>
+<p>Leve l 14. Find a blue shoulder off a treasure gob, +6 dex, +8 xp, woot!</p>
+<p>Moments later a white mob drops my first ring… +5% gold from monsters 🙁<br>
+And my 2nd ring +5 Life after each kill, nice!</p>
+<p>At Halls of Agony L1.</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2012/07/25/diablo-3-hardercore-mode/index.html" title="9:39 pm" rel="bookmark"><time class="entry-date" datetime="2012-07-25T21:39:54+00:00">July 25, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-132" class="post-132 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2012/04/03/ironxna-bordered-spritefont/index.html" rel="bookmark">IronXNA – Bordered SpriteFont</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>I’ve been messing with XNA lately, which has been quite awesome. One of the things that I felt was missing with the built in SpriteFont was the ability to render SpriteFonts with borders (or outlines, whatever you want to call them).</p>
+<p>My Google-Fu turned up nothing, so I wrote my own implementation based on the Text Renderer I’d written for internal Ironshod usage.</p>
+<p>I’ve released it on Github here for everyones enjoyment: <a href="https://github.com/danzel/IronXna">https://github.com/danzel/IronXna</a></p>
+<p>Beautiful Example:</p>
+<p><a href="../../wp-content/uploads/2012/04/Capture.png"><img class="aligncenter size-medium wp-image-133" title="Capture" src="../../wp-content/uploads/2012/04/Capture-300x71.png" alt="" width="300" height="71" srcset="../../wp-content/uploads/2012/04/Capture-300x71.png 300w,../../wp-content/uploads/2012/04/Capture.png 315w" sizes="(max-width: 300px) 100vw, 300px"></a></p>
+<p>When drawing text, both the inner and outer color can be changed.</p>
+<p>It tries hard to draw text with the same spacing as SpriteFont, but it doesn’t always achieve it.</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2012/04/03/ironxna-bordered-spritefont/index.html" title="9:55 pm" rel="bookmark"><time class="entry-date" datetime="2012-04-03T21:55:38+00:00">April 3, 2012</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-127" class="post-127 post type-post status-publish format-standard hentry category-uncategorized">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2010/02/03/ironshod-releases-reverse-maze/index.html" rel="bookmark">Ironshod releases Reverse Maze</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>Hi Everyone 🙂</p>
+<p>I’ve been working hard the last 6-7 months doing the coding for Ironshods latest iPhone/iPod touch game: <a href="http://ironshod.co.nz/reverse-maze/" target="_blank">Reverse Maze</a></p>
+<p>Reverse Maze is a maze puzzler where all controls are backwards. Your goal is to get from the starting point to the exit without touching any walls or objects.</p>
+
+		<style type="text/css">
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id="gallery-1" class="gallery galleryid-127 gallery-columns-3 gallery-size-thumbnail"><dl class="gallery-item">
+			<dt class="gallery-icon landscape">
+				<a href="../../2010/02/03/ironshod-releases-reverse-maze/ss1/index.html"><img width="150" height="150" src="../../wp-content/uploads/2010/02/ss1-150x150.png" class="attachment-thumbnail size-thumbnail" alt=""></a>
+			</dt></dl><dl class="gallery-item">
+			<dt class="gallery-icon landscape">
+				<a href="../../2010/02/03/ironshod-releases-reverse-maze/ss2/index.html"><img width="150" height="150" src="../../wp-content/uploads/2010/02/ss2-150x150.png" class="attachment-thumbnail size-thumbnail" alt=""></a>
+			</dt></dl><dl class="gallery-item">
+			<dt class="gallery-icon landscape">
+				<a href="../../2010/02/03/ironshod-releases-reverse-maze/ss6/index.html"><img width="150" height="150" src="../../wp-content/uploads/2010/02/ss6-150x150.png" class="attachment-thumbnail size-thumbnail" alt=""></a>
+			</dt></dl><br style="clear: both">
+		</div>
+
+<p><object width="425" height="344" data="http://www.youtube.com/v/zJdIIqEjDDI&color1=0x2b405b&color2=0x6b8ab6&hl=en_US&feature=player_embedded&fs=1" type="application/x-shockwave-flash"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><param name="src" value="http://www.youtube.com/v/zJdIIqEjDDI&color1=0x2b405b&color2=0x6b8ab6&hl=en_US&feature=player_embedded&fs=1"><param name="allowfullscreen" value="true"></object></p>
+<p><a href="http://itunes.apple.com/au/app/reverse-maze/id335805193?mt=8"><strong>Go get it on the App store now</strong></a></p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a> on <a href="../../2010/02/03/ironshod-releases-reverse-maze/index.html" title="8:47 pm" rel="bookmark"><time class="entry-date" datetime="2010-02-03T20:47:52+00:00">February 3, 2010</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-121" class="post-121 post type-post status-publish format-standard hentry category-dsp category-psp">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2009/05/30/defense-station-portable-v2-released/index.html" rel="bookmark">Defense Station Portable v2 Released!</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>Yes it is finally here!</p>
+<p><a href="http://ironshod.co.nz/2009/05/30/defense-station-portable-v2-released/">Head over to the Ironshod website for full details on Defense Station Portable v2</a></p>
+<p>(Post your comments over there too so I don’t have to read 2 blog posts!)</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/dsp/index.html" rel="category tag">DSP</a>, <a href="../../category/psp/index.html" rel="category tag">PSP</a> on <a href="../../2009/05/30/defense-station-portable-v2-released/index.html" title="5:52 pm" rel="bookmark"><time class="entry-date" datetime="2009-05-30T17:52:32+00:00">May 30, 2009</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+							
+	<article id="post-118" class="post-118 post type-post status-publish format-standard hentry category-dsp category-psp">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">
+				<a href="../../2009/05/18/defense-station-touchable-released/index.html" rel="bookmark">Defense Station Touchable Released!!!</a>
+			</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>Today I am proud to announce that Defense Station Touchable has hit the iTunes store!</p>
+<p>Defense Station Touchable is the iPhone/iPod version of Defense Station Portable (PSP Homebrew).</p>
+<p>Now containing 5 maps, each with 50 waves of enemies for a super happy fun time!</p>
+<p> </p>
+<p>Head over to the all new <a href="http://ironshod.co.nz/">Ironshod Website</a> for details! Or jump straight onto <a href="http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=314939205&mt=8">iTunes and buy it now!</a></p>
+<p> </p>
+<p>The PSP version should be released in the next week or 2, so keep an eye out 🙂</p>
+<p>If you are a level designer, then go to the <a href="http://ironshod.co.nz/">Ironshod Website</a> and get the PC version to start developing and testing your levels for the DSP release. Contact me with any questions you may have.</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../category/dsp/index.html" rel="category tag">DSP</a>, <a href="../../category/psp/index.html" rel="category tag">PSP</a> on <a href="../../2009/05/18/defense-station-touchable-released/index.html" title="10:57 am" rel="bookmark"><time class="entry-date" datetime="2009-05-18T10:57:22+00:00">May 18, 2009</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+			
+					<nav id="nav-below" class="navigation" role="navigation">
+			<h3 class="assistive-text">Post navigation</h3>
+			<div class="nav-previous"><a href="../../page/3/index.html"><span class="meta-nav">←</span> Older posts</a></div>
+			<div class="nav-next"><a href="../../index.html">Newer posts <span class="meta-nav">→</span></a></div>
+		</nav>
+	
+		
+		</div>
+	</div>
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+					<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="../../2020/05/09/converting-to-static-site/index.html">Converting to static site</a>
+									</li>
+											<li>
+					<a href="../../2018/02/09/how-to-get-the-apple-style-emojis-in-slack-on-windows/index.html">How to get the Apple style emojis back in Slack on Windows</a>
+									</li>
+											<li>
+					<a href="../../2016/10/03/setting-up-obs-to-record-your-desktop/index.html">Setting up OBS to record your desktop</a>
+									</li>
+											<li>
+					<a href="../../2016/06/07/massive-match/index.html">Massive Match</a>
+									</li>
+											<li>
+					<a href="../../2015/12/11/yow-melbourne-2015/index.html">YOW! Melbourne 2015</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Previous Posts</h3>		<ul>
+			<li><a href="../../2020/05/index.html">May 2020</a></li>
+	<li><a href="../../2018/02/index.html">February 2018</a></li>
+	<li><a href="../../2016/10/index.html">October 2016</a></li>
+	<li><a href="../../2016/06/index.html">June 2016</a></li>
+	<li><a href="../../2015/12/index.html">December 2015</a></li>
+	<li><a href="../../2015/11/index.html">November 2015</a></li>
+	<li><a href="../../2015/10/index.html">October 2015</a></li>
+	<li><a href="../../2015/05/index.html">May 2015</a></li>
+	<li><a href="../../2015/03/index.html">March 2015</a></li>
+	<li><a href="../../2015/02/index.html">February 2015</a></li>
+	<li><a href="../../2014/01/index.html">January 2014</a></li>
+	<li><a href="../../2012/07/index.html">July 2012</a></li>
+	<li><a href="../../2012/04/index.html">April 2012</a></li>
+	<li><a href="../../2010/02/index.html">February 2010</a></li>
+	<li><a href="../../2009/05/index.html">May 2009</a></li>
+	<li><a href="../../2009/03/index.html">March 2009</a></li>
+	<li><a href="../../2009/02/index.html">February 2009</a></li>
+	<li><a href="../../2009/01/index.html">January 2009</a></li>
+	<li><a href="../../2008/12/index.html">December 2008</a></li>
+	<li><a href="../../2008/11/index.html">November 2008</a></li>
+	<li><a href="../../2008/10/index.html">October 2008</a></li>
+	<li><a href="../../2008/08/index.html">August 2008</a></li>
+	<li><a href="../../2008/07/index.html">July 2008</a></li>
+	<li><a href="../../2008/03/index.html">March 2008</a></li>
+	<li><a href="../../2008/01/index.html">January 2008</a></li>
+	<li><a href="../../2007/12/index.html">December 2007</a></li>
+	<li><a href="../../2007/11/index.html">November 2007</a></li>
+	<li><a href="../../2007/09/index.html">September 2007</a></li>
+	<li><a href="../../2007/08/index.html">August 2007</a></li>
+	<li><a href="../../2007/06/index.html">June 2007</a></li>
+	<li><a href="../../2007/05/index.html">May 2007</a></li>
+	<li><a href="../../2007/03/index.html">March 2007</a></li>
+	<li><a href="../../2007/02/index.html">February 2007</a></li>
+	<li><a href="../../2007/01/index.html">January 2007</a></li>
+	<li><a href="../../2006/12/index.html">December 2006</a></li>
+	<li><a href="../../2006/11/index.html">November 2006</a></li>
+	<li><a href="../../2006/08/index.html">August 2006</a></li>
+	<li><a href="../../2006/06/index.html">June 2006</a></li>
+	<li><a href="../../2006/05/index.html">May 2006</a></li>
+	<li><a href="../../2006/04/index.html">April 2006</a></li>
+	<li><a href="../../2006/03/index.html">March 2006</a></li>
+	<li><a href="../../2006/02/index.html">February 2006</a></li>
+	<li><a href="../../2006/01/index.html">January 2006</a></li>
+	<li><a href="../../2005/11/index.html">November 2005</a></li>
+	<li><a href="../../2005/10/index.html">October 2005</a></li>
+	<li><a href="../../2005/09/index.html">September 2005</a></li>
+		</ul>
+		</aside><aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Mates</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://ironshod.co.nz">Ironshod iPhone Games</a></li>
+
+	</ul>
+</aside>
+		</div>
+		</div>
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+		</div>
+	</footer>
+</div>
+
+<script type="text/javascript" src="../../wp-content/themes/twentytwelve/js/navigation.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<Tower>
+	<Name>Cannon Tower</Name>
+	<Description>Ground only, small splash</Description>
+	<Requirements UpgradePoint="true">
+		<RequiredTower>arrow</RequiredTower>
+		<RequiredTower>fire</RequiredTower>
+	</Requirements>
+
+	<TurretLength>10</TurretLength>
+
+	<!-- Need atleast one of HitsGround / HitsFlyers if you want it to shoot enemies! -->
+	<HitsGround />
+	<HitsFlyers />
+
+	<!-- This tower slows -->
+	<Slows />
+	
+	<!-- ShotType replaces the old single character flag -->
+	<ShotType>arrow</ShotType>
+	<Levels>
+		<Level Cost="10" Damage="10" ROF="1000" Range="100" Splash="10" Speed="50" />
+		<Level Cost="20" Damage="15" ROF="1000" Range="110" Splash="20" Speed="50" />
+		<Level Cost="20" Damage="20" ROF="1000" Range="120" Splash="30" Speed="50" />
+	</Levels>
+</Tower>

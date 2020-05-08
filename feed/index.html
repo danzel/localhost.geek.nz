@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Danzels Internets</title>
+	<atom:link href="http://OFFLINEZIP.wpshofeed/" rel="self" type="application/rss+xml" />
+	<link>http://OFFLINEZIP.wpsho</link>
+	<description></description>
+	<lastBuildDate>Fri, 08 May 2020 22:49:26 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>hourly</sy:updatePeriod>
+	<sy:updateFrequency>1</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=4.9.14</generator>
+	<item>
+		<title>Converting to static site</title>
+		<link>http://OFFLINEZIP.wpsho2020/05/09/converting-to-static-site/</link>
+		<pubDate>Fri, 08 May 2020 22:49:26 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=290</guid>
+		<description><![CDATA[I don&#8217;t post on here any more, so I&#8217;m converting the existing wordpress to a static site. The whole site will probably disappear or be replaced in the future.]]></description>
+				<content:encoded><![CDATA[<p>I don&#8217;t post on here any more, so I&#8217;m converting the existing wordpress to a static site.</p>
+<p>The whole site will probably disappear or be replaced in the future.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>How to get the Apple style emojis back in Slack on Windows</title>
+		<link>http://OFFLINEZIP.wpsho2018/02/09/how-to-get-the-apple-style-emojis-in-slack-on-windows/</link>
+		<pubDate>Thu, 08 Feb 2018 20:19:27 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=282</guid>
+		<description><![CDATA[If you use Slack in a Browser, change the user agent to a Mac OS X one, for example: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36 You can use the User-Agent Switcher plugin for chrome. (Their default OS X Chrome is a too old version, so slack won&#8217;t load). [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>If you use Slack in a <strong>Browser</strong>, change the user agent to a Mac OS X one, for example:</p>
+<pre>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36</pre>
+<p>You can use the <a href="https://chrome.google.com/webstore/detail/user-agent-switcher-for-g/ffhkkpnppgnfaobgihpdblnhmmbodake/">User-Agent Switcher plugin for chrome.</a> (Their default OS X Chrome is a too old version, so slack won&#8217;t load).</p>
+<p>&nbsp;</p>
+<p>If you use the <strong>Desktop App</strong> it&#8217;s a bit more complicated:<br />
+Quit slack.</p>
+<p><code>npm install -g asar</code></p>
+<p>Open a console in <code>C:\Users\{your user}\AppData\Local\slack\app-3.0.5\resources<br />
+</code>(version number may change in the future)</p>
+<p><code>asar e app.asar app-extract</code></p>
+<p>open app-extract/package.json<br />
+Add the whole user agent from above in to the the version field (Keeping the version at the start)<br />
+example: &#8220;3.0.5 Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3188.0 Safari/537.36&#8221;.</p>
+<p><code>move app.asar app-original.asar</code><br />
+<code>asar p app-extract app.asar</code></p>
+<p>And restart slack! You&#8217;ll have to re-do this every time slack updates.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Setting up OBS to record your desktop</title>
+		<link>http://OFFLINEZIP.wpsho2016/10/03/setting-up-obs-to-record-your-desktop/</link>
+		<pubDate>Mon, 03 Oct 2016 01:04:49 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=276</guid>
+		<description><![CDATA[Download OBS Studio https://obsproject.com/download Install it Run OBS File, Settings Tab: Video Change Base and Output to be the same resolution (1920&#215;1080 probably) Tab: Output Encoder: Hardware (Anything) Recording Format: mp4 ok, close out of settings Sources [+] (at the bottom) Display Capture [ok] [ok] Check your video looks right in the video area (Should [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Download OBS Studio <a href="https://obsproject.com/download">https://obsproject.com/download</a><br />
+Install it<br />
+Run OBS</p>
+<p>File, Settings</p>
+<p><strong>Tab: Video</strong><br />
+Change Base and Output to be the same resolution (1920&#215;1080 probably)</p>
+<p><strong>Tab: Output</strong><br />
+Encoder: Hardware (Anything)<br />
+Recording Format: mp4</p>
+<p>ok, close out of settings</p>
+<p><strong>Sources [+]</strong> (at the bottom)<br />
+Display Capture<br />
+[ok] [ok]</p>
+<p>Check your video looks right in the video area (Should be showing your desktop)<br />
+You can click in there and resize, but if you need to do that you probably didn&#8217;t get the video resolution correct before.</p>
+<p>Ready!</p>
+<p>Hit [Start Recording] to record.</p>
+<p>&nbsp;</p>
+<p>In the future you should just be able to start OBS, the display should already be in the video pane, hit [Start Recording]</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Massive Match</title>
+		<link>http://OFFLINEZIP.wpsho2016/06/07/massive-match/</link>
+		<pubDate>Tue, 07 Jun 2016 09:24:56 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=271</guid>
+		<description><![CDATA[Last week I released a game called &#8220;Massive Match&#8220;. It is the first ever Massively Multiplayer Match 3. You can go play it right now, just click: Here! I built this game using TypeScript and Phaser. There is a little write up on the stack over at Gamasutra and I talked a bit of the tech details [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Last week I released a game called &#8220;<a href="https://massivematch.io">Massive Match</a>&#8220;. It is the first ever Massively Multiplayer Match 3.</p>
+<p>You can go play it right now, just click: <a href="https://massivematch.io">Here!</a></p>
+<div style="width: 650px" class="wp-caption aligncenter"><img class="" src="http://motherboard-images.vice.com/content-images/contentimage/no-id/1465128514258509.gif" width="640" height="422" /><p class="wp-caption-text">Massive Match Gameplay</p></div>
+<p>I built this game using TypeScript and Phaser. There is a little write up on the stack <a href="http://www.gamasutra.com/blogs/DaveLeaver/20160531/273235/Modern_HTML5_game_tech_stack.php">over at Gamasutra</a> and I talked a bit of the tech details on <a href="http://www.html5gamedevs.com/topic/22892-phaser-massivematchio-massively-multiplayer-match-3/">HTML 5 Game Devs</a>.</p>
+<p>&nbsp;</p>
+<p>Enjoy!</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>YOW! Melbourne 2015</title>
+		<link>http://OFFLINEZIP.wpsho2015/12/11/yow-melbourne-2015/</link>
+		<pubDate>Thu, 10 Dec 2015 21:30:24 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=267</guid>
+		<description><![CDATA[I was lucky enough to attend YOW! in Melbourne last week, here is a braindump of what I went to. &#160; Day 1 It&#8217;s Complicated&#8230; Virtual Teams: Making Them Work Interesting talk on Virtual Teams (Not remote teams). A Virtual Team is where (ideally) everyone is remote. Some takeaways: Almost everyone in the room used Slack. [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>I was lucky enough to attend <a href="http://melbourne.yowconference.com.au/" target="_blank">YOW!</a> in Melbourne last week, here is a braindump of what I went to.</p>
+<p>&nbsp;</p>
+<p><strong>Day 1</strong></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/556bf609e81b83070a0000dc?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">It&#8217;s Complicated&#8230;</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56527778a7e16fff0400004b?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Virtual Teams: Making Them Work</a></p>
+<p>Interesting talk on Virtual Teams (Not remote teams). A Virtual Team is where (ideally) everyone is remote. Some takeaways:<br />
+Almost everyone in the room used Slack.<br />
+When there is an office and some people remote, if the people in the office all go in to a room to have a call with remote people, this will make the remote people feel even more remote as the people together will have a conversation between themselves that they can&#8217;t really be a part of.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/561f2d5a02a8ab08a30000c7?track=Mobile&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Rethinking MVC with React Native &amp; ReactiveCocoa</a></p>
+<p>React Native is a React Framework for doing native looking mobile apps using javascript and React.  It looks pretty awesome.</p>
+<p>ReactiveCocoa is a React style framework for Cocoa UI, also looks pretty awesome.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b209f50fe03a39000198?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Pragmatic Microservices: Whether, When and How to Migrate</a></p>
+<p>This was an excellent talk. Randy went through lots of things around moving towards a microservice architecture, recommend watching this one back when the vids arrive.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b11877c84e50e8003a8c?track=Languages&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Production Haskell</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b06077c84e5866003a89?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Sustainability Supporting Data Variability: Keeping Core Components Clean while Dealing with Data Variability</a></p>
+<p>Another really good talk, talked about how they added lots of custom logic and processing to their app without making it a mess.<br />
+Spoilers: Preprocessing data, hook points to allow specific extensions and validation.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577afbff50fe0f69e000187?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Frugal Innovation and Scaffolding software</a></p>
+<p>Really good feel good talk on innovation in Africa, when the video comes up make sure you watch it!</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/556bfa40e81b83f9c50000e3?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Thriving in a Stochastic World</a></p>
+<p>Good talk for teams that try optimise for reliability in their process.</p>
+<p>&nbsp;</p>
+<p><strong>Day 2</strong></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/555b325601bd0e2a5c000167?track=Keynote&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Using Formal Methods to Eliminate Exploitable Bugs</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/55caa619ada984d41f000088?track=People+%26+Process&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Delivery Mapping: Turning the Lights On</a></p>
+<p>Really Really good talk for anyone doing scrum, Slides are online but don&#8217;t make sense by themselves, watch out for the video.</p>
+<p>Talks about the human-improvement side of this process, writing down what skills people think they have and what they&#8217;d like to improve on. Forming scrum teams based on the work that needs doing rather than trying to fit the work to the team.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56020150de720a387100057f?track=Cloud&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Facebook&#8217;s Product Infrastructure</a></p>
+<p>Talked about how facebook is just a giant hack and they like it that way.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/55f8d661ea59c8f6140000fa?track=Security&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Making Hacking Child&#8217;s Play</a></p>
+<p>Really entertaining talk on how easy it is to hack poorly made sites.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/56134896be772438b1000068?track=Architecture+%26+Design&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Deploying and Scaling Microservices</a></p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5608a7b720b411008f00005a?track=Software+Engineering&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">The Future of Software Engineering</a></p>
+<p>Good talk about the practice of Software Engineering. Everyone talks about how Software engineering isn&#8217;t real engineering, but when you delve in to it it turns out it is.</p>
+<p><a href="https://a.confui.com/public/conferences/54fafe79d02ecad6f60001fa/locations/54fafe79d02ecad6f60001fc/schedule/topics/5577b16c77c84ed45c003a92?track=Cloud&amp;framehost=http://melbourne.yowconference.com.au" target="_blank">Designing for Failure: Scaling Uber&#8217;s Backend by Breaking Everything</a></p>
+<p>Interesting talk about failures that Uber has had and how their architecture ended up like it is.</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Simpulls now available on Google Play</title>
+		<link>http://OFFLINEZIP.wpsho2015/12/03/simpulls-now-available-on-google-play/</link>
+		<pubDate>Wed, 02 Dec 2015 20:16:40 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=262</guid>
+		<description><![CDATA[Following up last month where I released Simpulls on iOS, Simpulls is now available on the other big platform, Google Play! https://play.google.com/store/apps/details?id=ironshod.simpulls Download it free and enjoy 🙂]]></description>
+				<content:encoded><![CDATA[<p>Following up last month where I released Simpulls on iOS, Simpulls is now available on the other big platform, Google Play!</p>
+<p><a href="https://play.google.com/store/apps/details?id=ironshod.simpulls">https://play.google.com/store/apps/details?id=ironshod.simpulls</a></p>
+<p><img class="alignnone size-medium wp-image-265" src="http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-300x300.gif" alt="playlaunch3d" width="300" height="300" srcset="http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-300x300.gif 300w, http://OFFLINEZIP.wpshowp-content/uploads/2015/12/playlaunch3d-150x150.gif 150w" sizes="(max-width: 300px) 100vw, 300px" /></p>
+<p>Download it free and enjoy <img src="https://s.w.org/images/core/emoji/11/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Simpulls two week post-mortem</title>
+		<link>http://OFFLINEZIP.wpsho2015/11/22/simpulls-two-week-post-mortem/</link>
+		<pubDate>Sun, 22 Nov 2015 09:35:37 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Ironshod]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=252</guid>
+		<description><![CDATA[Simpulls launched on iOS two weeks ago, this was the same week that Zombie Match Defense launched, which has been in the press due to it&#8217;s self proclaimed failed launch. Simpulls unfortunately didn&#8217;t receive an Apple feature on launch, so it&#8217;s been even more quiet. Simpulls has been received well by those who have picked it up, it&#8217;s [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Simpulls launched on iOS two weeks ago, this was the same week that Zombie Match Defense launched, which has been in the press due to it&#8217;s <a href="https://medium.com/@jakesones/the-story-of-a-decent-game-failing-46249e876ce6">self proclaimed failed launch</a>.<br />
+Simpulls unfortunately didn&#8217;t receive an Apple feature on launch, so it&#8217;s been even more quiet.</p>
+<p>Simpulls has been received well by those who have picked it up, it&#8217;s sitting at 4.5 stars globally, even with some negative reviews from the French store &#8211; it turns out that Simpulls crashes on launch in this region <img src="https://s.w.org/images/core/emoji/11/72x72/1f641.png" alt="🙁" class="wp-smiley" style="height: 1em; max-height: 1em;" /> A fix has been submitted for this however!</p>
+<p>This wasn&#8217;t the only issue, there have been a few random crash errors which are also fixed in the upcoming update. Finding all the bugs as a tiny team is really hard. The most annoying one is that in level 60 (a Totems and Mages level) some times people will get to the end of the level and not have enough totem pieces. I believe I&#8217;ve fixed this now (Pretty certain mages were clearing totem pieces), but I haven&#8217;t been able to reproduce it, so I&#8217;m not 100% sure.</p>
+<p>Having your game launch on iOS without an Apple feature is a deathbell, your game will almost never be seen by anyone, thankfully I have been lucky enough to meet some of the amazing people who release games on iOS and they were awesome enough to do some cross promotion for me.</p>
+<p>Thanks to these awesome people, we&#8217;ve managed to get a few hundred players, almost a thousand. This isn&#8217;t as much as I would have hoped, but overall I&#8217;m okay with it. It&#8217;s not enough to make any money, but considering this is the first game I&#8217;ve released in 5 years, at least there are people out there enjoying it finally.</p>
+<p>So where to from here? The Android version will be releasing early December, I&#8217;m just working on the final touches now. After that we&#8217;ll probably release on windows phone too (replacing the old unity version) and any other mobile platforms I can get to.</p>
+<p>Hopefully it does well enough somewhere to make it worthwhile to do a proper content update, we have a few more cool things we&#8217;d like to add in but we haven&#8217;t had the time. Sadly it isn&#8217;t worth working on for the amount of people we having playing it now <img src="https://s.w.org/images/core/emoji/11/72x72/1f641.png" alt="🙁" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+<p>&nbsp;</p>
+<p>Thanks for reading, and if you haven&#8217;t already got Simpulls, go <a href="https://itunes.apple.com/us/app/simpulls/id543097707?ls=1&amp;mt=8">grab it on the app store now.</a> (And tell your friends)</p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Simpulls Available on iOS NOW!</title>
+		<link>http://OFFLINEZIP.wpsho2015/11/05/simpulls-available-on-ios-now/</link>
+		<pubDate>Wed, 04 Nov 2015 20:19:33 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Ironshod]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=253</guid>
+		<description><![CDATA[You can download Simpulls, my latest game, on iOS NOW! https://itunes.apple.com/us/app/simpulls/id543097707?ls=1&#38;mt=8 Check it out 🙂]]></description>
+				<content:encoded><![CDATA[<p>You can download Simpulls, my latest game, on iOS NOW!</p>
+<p><a href="https://itunes.apple.com/us/app/simpulls/id543097707?ls=1&amp;mt=8">https://itunes.apple.com/us/app/simpulls/id543097707?ls=1&amp;mt=8</a></p>
+<p>Check it out <img src="https://s.w.org/images/core/emoji/11/72x72/1f642.png" alt="🙂" class="wp-smiley" style="height: 1em; max-height: 1em;" /></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Simpulls finally launching on iOS this Thursday</title>
+		<link>http://OFFLINEZIP.wpsho2015/10/31/simpulls-finally-launching-on-ios-this-thursday/</link>
+		<pubDate>Fri, 30 Oct 2015 22:17:06 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Ironshod]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=248</guid>
+		<description><![CDATA[For the last 5 years I&#8217;ve been working part time on a mobile game called Simpulls. If you follow me anywhere you&#8217;ve probably seen or heard something about it&#8230; It&#8217;s been a long journey, but I&#8217;ve learnt a lot and met a lot of awesome people. Simpulls is a cartoony and quirky swipe based old-school [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>For the last 5 years I&#8217;ve been working part time on a mobile game called Simpulls. If you follow me anywhere you&#8217;ve probably seen or heard something about it&#8230; It&#8217;s been a long journey, but I&#8217;ve learnt a lot and met a lot of awesome people.</p>
+<p><span style="font-weight: 400;">Simpulls is a cartoony and quirky swipe based old-school matching game. Unleash the powers of the special Simpulls you discover on your journey through their lands to help you overcome the variety of challenges you encounter.</span></p>
+<p><span style="font-weight: 400;">Simpulls is our ode to some of our past favourite puzzle games: Magical Drop, Puyo Puyo and Puzzle Bobble. We wanted to bring something new to touch puzzle gaming, something not bejeweled inspired.</span></p>
+<p><span style="font-weight: 400;">So ready your fingers for some fast paced Simpull matching action. Save Simpulls by matching together 3 or more of the same color. Grab and release Simpulls using simple swipe gestures. Discover the lost tribes of the Simpull warriors, mysterious mages and you might even encounter the rare freedom portals. Are you ready?</span></p>
+<p><iframe width="625" height="469" src="https://www.youtube.com/embed/k5g0SovPdyk?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
+<p>And if you do the Twitter thing, RTs are greatly appreciated.</p>
+<blockquote class="twitter-tweet" width="550">
+<p lang="en" dir="ltr">Our game Simpulls is (finally) launching on the App Store this coming Thursday! Trailer: <a href="https://t.co/SIDnR9GH2Q">https://t.co/SIDnR9GH2Q</a> <a href="https://t.co/GNplZYA4hR">pic.twitter.com/GNplZYA4hR</a></p>
+<p>&mdash; Dave leaver (@daveleaver) <a href="https://twitter.com/daveleaver/status/660210554766651392">October 30, 2015</a></p></blockquote>
+<p><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+]]></content:encoded>
+			</item>
+		<item>
+		<title>Converting mp4 to gif command line</title>
+		<link>http://OFFLINEZIP.wpsho2015/10/09/converting-mp4-to-gif-command-line/</link>
+		<pubDate>Fri, 09 Oct 2015 08:51:40 +0000</pubDate>
+		<dc:creator><![CDATA[Danzel]]></dc:creator>
+				<category><![CDATA[Uncategorized]]></category>
+
+		<guid isPermaLink="false">http://OFFLINEZIP.wpsho?p=242</guid>
+		<description><![CDATA[Download ffmpeg ffmpeg -i clip.mp4 -vf palettegen palette.png ffmpeg -y -i clip.mp4 -i palette.png -lavfi paletteuse output.gif DONE! ref http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html You can also use giflossy to reduce the size https://github.com/pornel/giflossy]]></description>
+				<content:encoded><![CDATA[<p>Download <a href="https://www.ffmpeg.org/download.html">ffmpeg</a></p>
+<pre>ffmpeg -i clip.mp4 -vf palettegen palette.png
+ffmpeg -y -i clip.mp4 -i palette.png -lavfi paletteuse output.gif</pre>
+<p>DONE!</p>
+<p>ref <a href="http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html">http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html</a></p>
+<p>You can also use giflossy to reduce the size <a href="https://github.com/pornel/giflossy">https://github.com/pornel/giflossy</a></p>
+]]></content:encoded>
+			</item>
+	</channel>
+</rss>

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>DSP Status | Danzels Internets</title>
+
+
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//s.w.org">
+
+
+
+<link rel="stylesheet" id="twentytwelve-fonts-css" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&subset=latin,latin-ext" type="text/css" media="all">
+<link rel="stylesheet" id="twentytwelve-style-css" href="../../../../wp-content/themes/twentytwelve/style.css" type="text/css" media="all">
+
+<script type="text/javascript" src="../../../../wp-includes/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="../../../../wp-includes/js/jquery/jquery-migrate.min.js"></script>
+
+
+
+
+
+
+
+
+
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #f4c24b; }
+</style>
+</head>
+
+<body class="post-template-default single single-post postid-35 single-format-standard custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<hgroup>
+			<h1 class="site-title"><a href="../../../../index.html" title="Danzels Internets" rel="home">Danzels Internets</a></h1>
+			<h2 class="site-description"></h2>
+		</hgroup>
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle">Menu</button>
+			<a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+			<div class="nav-menu"><ul>
+<li><a href="../../../../index.html">Home</a></li></ul></div>
+		</nav>
+
+			</header>
+
+	<div id="main" class="wrapper">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+			
+				
+	<article id="post-35" class="post-35 post type-post status-publish format-standard hentry category-dsp category-psp">
+				<header class="entry-header">
+			
+						<h1 class="entry-title">DSP Status</h1>
+								</header>
+
+				<div class="entry-content">
+			<p>I’ve applied for a sourceforge site for DSP. It is a takeover from another project using ‘dsp’ as its name already, they haven’t used the project at all however, (it has been idle for 2 years,) so I shouldn’t have any trouble getting the name.<br>
+I’ve done some minor improvements since the last release including:<br>
+– Show splash/speed when > 0<br>
+– Show tower stats when maxed.<br>
+– Very minor rendering tweaks.</p>
+<p>I’ve also been researching improving the framerate and trying various different techniques.<br>
+Currently DSP renders at 30fps on the PSP, dropping to 20 if you are on the ingame-menu when between waves (text rendering is slow by the looks).<br>
+I’ve tried converting the rendering engine from immediate mode to use vertices with glDrawArray, this gave no noticable FPS differences.<br>
+During this testing I discovered that certain textures of the same size render faster than others.<br>
+Looking into this further (including the pspgl source) It would appear to be that PSPGL doesn’t copy/move textures between GE-Memory and System-Memory, so if your texture ends up in system memory you get slower render speed and nothing you can do about it 🙁<br>
+Will need to do more research into this including a debug build of PSPGL to find out what is really happening, but that is my current thoughts.<br>
+It may be possible to fix this in PSPGL or alternatively switch to using GU for rendering on PSP instead, we will see.<br>
+Not something DSP needs as of yet since the framerate stays high even with huge waves with lots of towers firing at them, but something new, fun and interesting to work on at some stage 😉</p>
+<p>I’ve also created a draft XML file for the next level format: http://OFFLINEZIP.wpsho/dsp/level_draft_1.xml<br>
+This is a proposed replacement for the current level.txt.<br>
+Switching to XML for the file formats will give numerous advantages:<br>
+ – Files become alot more self explanatory (no more, “what is line 5 again?”)<br>
+ – Better backwards compatibility in the future.<br>
+ – etc… >_><br>
+Please give it a quick look over and offer any suggestions you may have (especially you Shazz!)</p>
+<p>I will also switch enemy.txt / tower.txt to XML files, but haven’t drafted any up yet.</p>
+<p>Another interesting thing I’m thinking about adding is the ability to run levels from within zip files, this will make for much faster copying of levels to your PSP.</p>
+<p>Thats enough news for now.<br>
+danzel.</p>
+<p><strong>Update, will use this post for general ‘next gen’ XML file format discussion.</strong><br>
+level.xml changes:<br>
+ – Capitalize all attributes.<br>
+ – Add ‘Radius’ to waypoints.<br>
+ – Change “Name” attribute to “Folder”<br>
+ – Change Path.flags to be seperate attributes (Boss, SaveTheHouse, UpgradePoint, all default to false)<br>
+ – Add Enemy.Multiplier, makes old enemies new again! 😉<br>
+I’ve also added an enemy and tower draft, no big changes in there yet.<br>
+<a href="../../../../dsp/level_draft_2.xml">http://OFFLINEZIP.wpsho/dsp/level_draft_2.xml</a><br>
+<a href="../../../../dsp/enemy_draft_2.xml">http://OFFLINEZIP.wpsho/dsp/enemy_draft_2.xml</a><br>
+<a href="../../../../dsp/tower_draft_2.xml">http://OFFLINEZIP.wpsho/dsp/tower_draft_2.xml</a></p>
+<p><strong>Draft 3</strong><br>
+Level:<br>
+ – Add Level.LevelSprite (includes changeable Width, Height)<br>
+Enemy:<br>
+ – Enemy has levels, the first one is used by default unless specified in Level.Waves.Wave.Enemy->Level (Which replaces Multiplier)<br>
+ – Specify Sprites/Sounds in XML, allows different amounts of Frames for each.<br>
+ – Add a “Leave Level” sound.<br>
+Tower:<br>
+ – Add Capability (Hit Ground/Air, Slows), Replaces old tags<br>
+ – Add Sprites (includes turret position)<br>
+   – FireSprite (shown when shoots).</p>
+<p><a href="../../../../dsp/level_draft_3.xml">http://OFFLINEZIP.wpsho/dsp/level_draft_3.xml</a><br>
+<a href="../../../../dsp/enemy_draft_3.xml">http://OFFLINEZIP.wpsho/dsp/enemy_draft_3.xml</a><br>
+<a href="../../../../dsp/tower_draft_3.xml">http://OFFLINEZIP.wpsho/dsp/tower_draft_3.xml</a></p>
+<p><strong>Draft 4 (final)</strong></p>
+<p>Everything:<br>
+ – UpgradePoint is now an integer everywhere.<br>
+Level:<br>
+ – InterestLevel/Live can now cost upgrade points.<br>
+ – Add StartSound to Wave.<br>
+ – Add Win/Lose (With Sound and Sprite)<br>
+Enemy:<br>
+ – Add Weakness (take more/less damage from certain towers)<br>
+Tower:<br>
+ – Add PlacementSound<br>
+ – Add SellAmount to Level<br>
+ – Add Poison:Damage/Length to Level<br>
+ – Move Capability.Slow to Level.SlowLength/SlowAmount<br>
+ – Change <ShotType /> to <Shot />, has supporting attributes for shot animation etc.</p>
+<p><a href="../../../../dsp/level_draft_4.xml">http://OFFLINEZIP.wpsho/dsp/level_draft_4.xml</a><br>
+<a href="../../../../dsp/enemy_draft_4.xml">http://OFFLINEZIP.wpsho/dsp/enemy_draft_4.xml</a><br>
+<a href="../../../../dsp/tower_draft_4.xml">http://OFFLINEZIP.wpsho/dsp/tower_draft_4.xml</a></p>
+<p><strong>Still missing:</strong><br>
+ – Music, Special music for boss waves.<br>
+Smoke trail ShotType.</p>
+<p><strong>Missing but may not make it:</strong><br>
+Add min range (to define a target reachable band instead of a target reachable disk)</p>
+					</div>
+		
+		<footer class="entry-meta">
+			This entry was posted in <a href="../../../../category/dsp/index.html" rel="category tag">DSP</a>, <a href="../../../../category/psp/index.html" rel="category tag">PSP</a> on <a href="../../../../2007/09/04/dsp-status/index.html" title="10:18 pm" rel="bookmark"><time class="entry-date" datetime="2007-09-04T22:18:58+00:00">September 4, 2007</time></a><span class="by-author"> by <span class="author vcard"><a class="url fn n" href="../../../../author/danzel/index.html" title="View all posts by Danzel" rel="author">Danzel</a></span></span>.								</footer>
+	</article>
+
+				<nav class="nav-single">
+					<h3 class="assistive-text">Post navigation</h3>
+					<span class="nav-previous"><a href="../../../../2007/08/29/defence-station-portable-11/index.html" rel="prev"><span class="meta-nav">←</span> Defence Station Portable 1.1a</a></span>
+					<span class="nav-next"><a href="../../../../2007/09/23/dsp-on-sfnet/index.html" rel="next">DSP on sf.net <span class="meta-nav">→</span></a></span>
+				</nav>
+
+				
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			47 thoughts on “<span>DSP Status</span>”		</h2>
+
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-16616">
+		<article id="comment-16616" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16616"><time datetime="2007-09-05T00:06:53+00:00">September 5, 2007 at 12:06 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Wow, would increase size of file, but better and faster to understand/edit. I see a bright futur for a map editor with xml support.<br>
+About zipped levels: What load method do you consider? (tmp unzipping->playing or load in memory->playing)</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16617">
+		<article id="comment-16617" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16617"><time datetime="2007-09-05T00:24:13+00:00">September 5, 2007 at 12:24 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>ah ah ! very cool update, and apfel (tv8 ?), the size will be a little bit more but in comparison to the wav files and all the png, that’s nothing, and only used at loading. Having sounds as mp3 or atrac3 would be a better optimization</p>
+<p>About the perfs issues, Danzel, I’ve got a good knowledge of the GU so I can help you to optimize, the fact is if you want to keep SDL and the fact that it runs on the PSP, Windows, OSX and Linux (which is uberGood) we will have to see how to manage it…</p>
+<p>My feedback on the XML :<br>
+– for the TowerMenu tag, I think it is dangerous to implicitely match the value with the folmder name (on Windows it doesn’t work if you use Capital letters), I would prefer a folder attribute to make the link<br>
+– Paths : cool 😀 I hope a type attribute will be there later to define different path types (path finding, waypoints, curve,…). Oh you did it for pathc, perfect !<br>
+– Waves : perfect…. just a question, I’d like an option that can enable/disable the fact that you have to push a button for a next wave and have the option to set the waves against the time (like in DesktopTD)<br>
+– for Enemy, same comment, dangerous to implicitely map a name to a floder name<br>
+– for Enemy, possibly a radius factor to set the enmy along the path (to avoid straight lines)<br>
+– for Waves, isntad of flags=”UH maybe better to have explicit attributte like Boss=”False” SaveTheHouse=”True”</p>
+<p>So only minor comments, that is exactly what I was waiting for !</p>
+<p>all for now !</p>
+<p>Good work Danzel, you well earned your 200$ 😀</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16632">
+		<article id="comment-16632" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16632"><time datetime="2007-09-05T08:31:32+00:00">September 5, 2007 at 8:31 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>@apfel – I would be loading the files in memory, we have memory to spare and well, its just better 🙂</p>
+<p>@Shazz – mp3/atrac3 will be a possibility in the future for sure.</p>
+<p>How do you see the TowerMenu thing working, currently the name is the foldername, which obviously works badly. Could you write a sample bit of xml or something in this respect?</p>
+<p>Paths – oh yeah, curve, will add that in.</p>
+<p>Waves – there is a timer which can be used to force new waves: waittime.<br>
+It will allow you to have multiple overlapping waves on different paths, etc.</p>
+<p>radius – You mean enemies will walk within this radius of the actual path, instead of walking directly on it? If so should be able to add this.</p>
+<p>Wave Flags – Definitely!</p>
+<p>Thanks 🙂</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16653">
+		<article id="comment-16653" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16653"><time datetime="2007-09-05T19:27:10+00:00">September 5, 2007 at 7:27 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Hiya Danzel !</p>
+<p>First of all, I was looking for a free, light and easy2use XML editor to help the level maker, at least for the time that we don’t have a fully integrated editor for DSP (and only you knows if it will happen 😉 )<br>
+So I found a little tool which is nice to fill the XML, permit grammar checking and so on…</p>
+<p><a href="http://www.firstobject.com/dn_editor.htm" rel="nofollow">http://www.firstobject.com/dn_editor.htm</a><br>
+direct link : <a href="http://www.firstobject.com/foxe22.zip" rel="nofollow">http://www.firstobject.com/foxe22.zip</a></p>
+<p>Tell me if you like it and then I can try to make a full package with TileStudio, some scritps and this tool for final XML tweaking</p>
+<p>About the /folder name issue, yep that’s no an easy one… I would propose :</p>
+<p>And the name should match with the Tower.xml  attribute to check for errors. (not sure this name attribute is really useful :D)<br>
+But at least an attribtue name directory may warn people they have to enter a filepath.</p>
+<p>About the radius, yes that’s that to be able to have this kind of enemies walk :<br>
+ –<br>
+  –<br>
+–<br>
+instead of :<br>
+– – –</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16654">
+		<article id="comment-16654" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16654"><time datetime="2007-09-05T19:30:37+00:00">September 5, 2007 at 7:30 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Arg…. wordpress deleted my XML tag ! It refuses brackets !<br>
+So I meant :</p>
+<p>About the -TowerMenu-/folder name issue, yep that’s no an easy one… I would propose :</p>
+<p>-TowerMenu x=”0″ y=”0″ directory=”mytower” name=”SuperCool Tower”/-</p>
+<p>and for the radius, to have for example an arrow of enemies instead of a straight line</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16655">
+		<article id="comment-16655" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16655"><time datetime="2007-09-05T20:34:00+00:00">September 5, 2007 at 8:34 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>I see, don’t really need the name attribute there, that would be defined in the xml file for the tower.<br>
+Speaking of which, I’ll go knock up tower/enemy xml files.</p>
+<p><strong>And Updated, check the post.</strong></p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16667">
+		<article id="comment-16667" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16667"><time datetime="2007-09-05T23:35:58+00:00">September 5, 2007 at 11:35 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Cool !<br>
+New comments ? Yes !</p>
+<p>Level.xml</p>
+<p>– Maybe add at the beginning something like<br>
+That’s nice as if you use a validation-able XML editor, it can immediately validate your file (and having generated a DTD, it seems the XML is not valid, there is an issue with the Path, Stat and End tags (dtd : <a href="http://tmpstore.free.fr/DSP/level.dtd" rel="nofollow">http://tmpstore.free.fr/DSP/level.dtd</a>)</p>
+<p>– you forgot a doublequote in laser folder (cool to have automatic validation :D)</p>
+<p>– Quite cool to have a multiplier at the enemy level for recycling… I guess later could be nice to specify for an enemy a level instead of a multiplier</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16668">
+		<article id="comment-16668" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16668"><time datetime="2007-09-05T23:43:24+00:00">September 5, 2007 at 11:43 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>The tower XML :</p>
+<p>– it was the case in text also but I still don’t understand the turretLength ? what does it do ?</p>
+<p>– instead oh HitsX and Slows why not a Capability Tag with attributes HitsGround=”True” SlowDown=”True” …</p>
+<p>Optionaly :</p>
+<p>– Maybe to have tags for the resources : png and wav instead of explicit file links (shot.png, icon.png…).<br>
+I mean we can define in XML the different sprites and sounds with names and parameters :<br>
+– I’d like a TurretPosition tag to define the X,Y position of the turret<br>
+– I’d like some spriteSheet parameters to define the shot animation (number of sprites), same for explosion.<br>
+– same for the sounds<br>
+– possibly a fire sprite to show when the turret shots (like sparkles, flames…)</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16669">
+		<article id="comment-16669" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16669"><time datetime="2007-09-05T23:46:35+00:00">September 5, 2007 at 11:46 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>The Enemy XML :<br>
+– like the Tower I’d like to be able to define levels (so for each level the health, the goldvalue, the speed, the size could be different<br>
+– tags for resources (png, wav)<br>
+– DOCTYPE<br>
+– Capability tag with flying=true, immunize, unslowable…<br>
+– Frametime used in the resources tags</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16676">
+		<article id="comment-16676" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16676"><time datetime="2007-09-06T04:53:19+00:00">September 6, 2007 at 4:53 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>arg, wordpress will make me crazy..</p>
+<p>for the doctype I meant use something like<br>
+< !DOCTYPE Level SYSTEM “http://OFFLINEZIP.wpsho/DSP/Level.dtd” ></p>
+<p>to generate the dtd online : <a href="http://www.hitsw.com/xml_utilites/" rel="nofollow">http://www.hitsw.com/xml_utilites/</a></p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16682">
+		<article id="comment-16682" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16682"><time datetime="2007-09-06T08:53:24+00:00">September 6, 2007 at 8:53 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Validation will be good, I’ll leave making a DTD until we are closer to finalising the format.<br>
+Doctype yep, but we’ll need a DTD 😉</p>
+<p>Turrent Length: its the distance from the turret position (currently assumed to be the center) where shots are spawned.<br>
+This means if your tower has a long turret, shots will spawn at the correct position (the end of the barrel).</p>
+<p>TurretPosition: Yep.<br>
+Capabilities sounds good, cleans that up a bit.<br>
+Enemy Levels sounds good, can always default them to level 0.<br>
+SpriteSheet/Resources w/ parameters: will do.<br>
+Firing sprite: will do</p>
+<p>I’ll post another updated version tonight.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16706">
+		<article id="comment-16706" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">Shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16706"><time datetime="2007-09-06T18:49:49+00:00">September 6, 2007 at 6:49 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Eh eh it seems you’re working when I’m sleeping…. that’s global coworking 😀</p>
+<p>I have generated the DTD for level and seems to work well : <a href="http://tmpstore.free.fr/DSP/level.dtd" rel="nofollow">http://tmpstore.free.fr/DSP/level.dtd</a>, you can use it to start if you like.</p>
+<p>Cool for the update 😀 I did not expect all my comments to be taken into account 😀</p>
+<p>If there are some points I can help in investigating or whatever, just tell.</p>
+<p>Danzel for president ! 😀</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16712">
+		<article id="comment-16712" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16712"><time datetime="2007-09-06T22:26:04+00:00">September 6, 2007 at 10:26 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>(From dtd ^^ )<br>
+<!ATTLIST Waypoint X ( -16 | 192 | 64 ) #REQUIRED ><br>
+Do we need the ( -16… ) bit?</p>
+<p>Have posted a 3rd draft above.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16717">
+		<article id="comment-16717" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16717"><time datetime="2007-09-07T00:57:16+00:00">September 7, 2007 at 12:57 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>level.xml<br>
+//<br>
+//		arrow<br>
+//		fire<br>
+//	</p>
+<p>Only one upgrade point possible per tower or can I make a tower, which requires more upgradepoints?<br>
+Do I need always to set a “X”.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16718">
+		<article id="comment-16718" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16718"><time datetime="2007-09-07T01:01:33+00:00">September 7, 2007 at 1:01 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>the missing part of my previous commant:<br>
+	(Requirements UpgradePoint=”true”)<br>
+		(RequiredTower)arrow(/RequiredTower)<br>
+		(RequiredTower>fire</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16723">
+		<article id="comment-16723" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16723"><time datetime="2007-09-07T04:38:45+00:00">September 7, 2007 at 4:38 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>perfect…. all the comments I can make are already in your still missing section !</p>
+<p>however…. even if I can leave with it…. in level.xml the fact that there is no name for an enemy and a tower and the only link is a folder name looks strange…  bah.. that’s me, forget !</p>
+<p>and for the dtd, yes, I forgot to delete the 16, 64… values from the generated dtd.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16729">
+		<article id="comment-16729" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16729"><time datetime="2007-09-07T08:41:35+00:00">September 7, 2007 at 8:41 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Alright, will make UpgradePoint an integer instead.<br>
+@apfel – Which “X” ?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16763">
+		<article id="comment-16763" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16763"><time datetime="2007-09-08T02:21:25+00:00">September 8, 2007 at 2:21 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Can we start now to use/port the new format for our Mods or do want to change anything in the futur?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16766">
+		<article id="comment-16766" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16766"><time datetime="2007-09-08T03:47:00+00:00">September 8, 2007 at 3:47 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>We’ll go to draft 4 (which I’ll knock up in the next 24hrs, should get time). Then that will be the plan going forward. (Shouldn’t be any/many major changes in it, just some additions)<br>
+After draft 4, assuming there are no issues, Me/Shazz will make an ‘official’ DTD for each of the files to let you verify against, this may change in minor ways as we go forwards with implementation of course.</p>
+<p>You may have to wait a while before you get a build that loads the XML bits however 🙂 Could take a while to code all those new features, lol.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16777">
+		<article id="comment-16777" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16777"><time datetime="2007-09-08T11:05:26+00:00">September 8, 2007 at 11:05 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Draft 4 Added.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16802">
+		<article id="comment-16802" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16802"><time datetime="2007-09-08T20:39:52+00:00">September 8, 2007 at 8:39 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Très bien !<br>
+Let’s start with this !<br>
+I will generate the DTDs asap, test them a little and post a link.<br>
+Then I’ll update the tileStudio env to generate both txt and XML versions.</p>
+<p>Danzel, time to add the tinyXML parser now 😀</p>
+<p>what about sourceforge ?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16804">
+		<article id="comment-16804" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16804"><time datetime="2007-09-08T21:13:03+00:00">September 8, 2007 at 9:13 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Level DTD posted.<br>
+<a href="http://tmpstore.free.fr/DSP/level_draft_4.dtd" rel="nofollow">http://tmpstore.free.fr/DSP/level_draft_4.dtd</a></p>
+<p>add to the beginning of the XML file :</p>
+<p><!DOCTYPE Level SYSTEM "htp://tmpstore.free.fr/DSP/level_draft_4.dtd"></p>
+<p>or downlaod it to your XML folder locally and add :<br>
+<!DOCTYPE Level SYSTEM "level_draft_4.dtd"></p>
+<p>Note for Danzel :<br>
+– InterestLevel is optional but not the InterestUpgrades element (at least empty)</p>
+<p>I made some tests, adding ,removing, specifying bad values… looks ok</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16805">
+		<article id="comment-16805" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16805"><time datetime="2007-09-08T21:21:02+00:00">September 8, 2007 at 9:21 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>TowerDTD posted.<br>
+<a href="http://tmpstore.free.fr/DSP/tower_draft_4.dtd" rel="nofollow">http://tmpstore.free.fr/DSP/tower_draft_4.dtd</a></p>
+<p>add to the beginning of the XML file :</p>
+<p><!DOCTYPE Tower SYSTEM "htp://tmpstore.free.fr/DSP/tower_draft_4.dtd"></p>
+<p>or download it to your XML folder locally and add :</p>
+<p><!DOCTYPE Tower SYSTEM "tower_draft_4.dtd"></p>
+<p>Note for Danzel :<br>
+– FireSound, HitSound and PlacementSound are mandatory by an attribute Use (True or False) indicates if it is used. (DTD forbids optional root elements or I did not find how to do it)</p>
+<p>I made some tests, adding ,removing, specifying bad valuesâ�¦ looks ok</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16806">
+		<article id="comment-16806" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16806"><time datetime="2007-09-08T21:24:35+00:00">September 8, 2007 at 9:24 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Enemy DTD posted.<br>
+<a href="http://tmpstore.free.fr/DSP/enemy_draft_4.dtd" rel="nofollow">http://tmpstore.free.fr/DSP/enemy_draft_4.dtd</a></p>
+<p>add to the beginning of the XML file :</p>
+<p><!DOCTYPE Enemy SYSTEM "htp://tmpstore.free.fr/DSP/enemy_draft_4.dtd"></p>
+<p>or download it to your XML folder locally and add :</p>
+<p><!DOCTYPE Enemy SYSTEM "enemy_draft_4.dtd"></p>
+<p>I made some tests, adding ,removing, specifying bad values, looks ok</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-16812">
+		<article id="comment-16812" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16812"><time datetime="2007-09-09T02:23:04+00:00">September 9, 2007 at 2:23 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Still waiting on Sourceforge, might have some time to check out those DTDs in the 24hrs.<br>
+Should be able to do optional root elements, otherwise that sucks 🙁</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16813">
+		<article id="comment-16813" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16813"><time datetime="2007-09-09T02:45:04+00:00">September 9, 2007 at 2:45 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Ah Danzel, I made a mistake, root elements can be optional 😀 </p>
+<p>Just use this :<br>
+<!ELEMENT Tower ( Name, Description, Requirements, TurretLength, Capability, Shot, Levels, TowerSprite, TurretSprite, FireSprite, FireSound?, HitSound?, PlacementSound? ) ></p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16814">
+		<article id="comment-16814" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16814"><time datetime="2007-09-09T02:50:19+00:00">September 9, 2007 at 2:50 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>I have updated the 3 DTDs with optional root elements 😉 Sorry for the troubles….</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16815">
+		<article id="comment-16815" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16815"><time datetime="2007-09-09T03:09:07+00:00">September 9, 2007 at 3:09 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Awesome 🙂<br>
+zzz</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16816">
+		<article id="comment-16816" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://0.gravatar.com/avatar/fa0153fae86dcee3621f65667f76a13c?s=44&d=mm&r=g" srcset="http://0.gravatar.com/avatar/fa0153fae86dcee3621f65667f76a13c?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">BetaSword</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16816"><time datetime="2007-09-09T04:27:34+00:00">September 9, 2007 at 4:27 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Using the tower DTD, I noticed that it still requires a turret sprite and a fire sprite. Is it possible to make those two optional, like the various sound effects, as well? Cause right now, none of my towers use either (their all just static images), and requiring both means I’d have to have just blank .pngs hanging around in the tower folder.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-16818">
+		<article id="comment-16818" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16818"><time datetime="2007-09-09T04:45:02+00:00">September 9, 2007 at 4:45 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>BetaSword, according to Danzel’s draft, I did not know if those 2 sprites definition can be optional or not…</p>
+<p>But I may understand that the turret can be optional… and the fire sprite too… so I have update the DTD to have both optional, Danzel will react if he doesn’t agree 😀</p>
+<p>get it at the same url :<br>
+<a href="http://tmpstore.free.fr/DSP/tower_draft_4.xml" rel="nofollow">http://tmpstore.free.fr/DSP/tower_draft_4.xml</a></p>
+<p>cool to see some people use the DTDs !</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-16869">
+		<article id="comment-16869" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-16869"><time datetime="2007-09-11T01:49:48+00:00">September 11, 2007 at 1:49 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>@danzel<br>
+How is the status of the xml engine (not included new features) in DSP?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-16879">
+		<article id="comment-16879" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-16879"><time datetime="2007-09-11T07:13:01+00:00">September 11, 2007 at 7:13 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>@apfel – 0%<br>
+Awaiting Sourceforge project before I begin on it.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-17108">
+		<article id="comment-17108" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/dfbe5c1a67b8297ed6fda61f68f654fd?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/dfbe5c1a67b8297ed6fda61f68f654fd?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17108"><time datetime="2007-09-17T09:22:29+00:00">September 17, 2007 at 9:22 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>danzel, could you take alook at the dcemu psp news forum, and click duke nukem 3d there, and check page 15 and 16, id hope you could fix it.<br>
+the thread is on page1.<br>
+sorry for talking offtopic, but i lost your email:(</p>
+<p>its such a nice game and i was hoping you could fix the damn loading bug…<br>
+everyone there waits for a developer to fix it and i thought maby you could…</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-17110">
+		<article id="comment-17110" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17110"><time datetime="2007-09-17T10:02:38+00:00">September 17, 2007 at 10:02 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>@borgqueenx.<br>
+If the source isn’t too hard to get working I’ll have a look for what I can do.</p>
+<p>My email address is in the readme for everything I’ve released 😉</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-17132">
+		<article id="comment-17132" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17132"><time datetime="2007-09-17T17:56:46+00:00">September 17, 2007 at 5:56 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>@borgqueenx<br>
+Can’t get it going, no luck :\</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-17147">
+		<article id="comment-17147" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17147"><time datetime="2007-09-17T21:57:50+00:00">September 17, 2007 at 9:57 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>mmmm thats to bad, i really like the port on the psp, no lag…<br>
+i wish loading could work.</p>
+<p>anyways you tried:) and i’m happy you could do that for me:)</p>
+<p>And uh, you said that your defence station game only needs music, and some other stuff.<br>
+How many levels does it have now and can you attach a complete version to put on my psp instantly?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-17178">
+		<article id="comment-17178" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17178"><time datetime="2007-09-18T08:54:19+00:00">September 18, 2007 at 8:54 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Grab the latest version from my blog (1.1a), then if you want more levels, there are some available at the QJ forums:<br>
+<a href="http://forums.qj.net/f-psp-development-forum-11/t-defence-station-portable-tower-defence-118383.html" rel="nofollow">http://forums.qj.net/f-psp-development-forum-11/t-defence-station-portable-tower-defence-118383.html</a></p>
+<p>There are also more in the thread I haven’t linked yet.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-17223">
+		<article id="comment-17223" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5233f421486ba5ddb394e8140bae45de?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">apfel</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17223"><time datetime="2007-09-19T03:50:55+00:00">September 19, 2007 at 3:50 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>o_O Wow sf.net takes a lot of time to grant a new project or have you already began with next version?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-17232">
+		<article id="comment-17232" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17232"><time datetime="2007-09-19T08:17:52+00:00">September 19, 2007 at 8:17 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>I’m doing a ‘project name takeover’, so it will take a while. I was certainly expecting it done by now however!<br>
+I’ve done some minor things towards the next version, but I’m waiting on SF.net before I start on the XML reader.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-17257">
+		<article id="comment-17257" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17257"><time datetime="2007-09-19T18:28:26+00:00">September 19, 2007 at 6:28 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>i’l send you some music made for my productions…<br>
+i’l do that tommorrow…<br>
+But you’l have to credit the composers who made the music ok?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-17279">
+		<article id="comment-17279" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17279"><time datetime="2007-09-20T01:53:31+00:00">September 20, 2007 at 1:53 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>here you go: <a href="http://www.megaupload.com/nl/?d=EFOL0FH3" rel="nofollow">http://www.megaupload.com/nl/?d=EFOL0FH3</a><br>
+If you want to use it, please credit:</p>
+<p>Boaz van Veen.<br>
+Nils Kjellman.<br>
+/\lex.</p>
+<p>And global credit to: Golden Dragon Productions.</p>
+<p>It may be very small, maby create a menu for credits or something…</p>
+<p>I hope you can use it;)</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-17325">
+		<article id="comment-17325" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/88fa89ebcba410fb309804193dbafd3c?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/88fa89ebcba410fb309804193dbafd3c?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17325"><time datetime="2007-09-20T22:45:34+00:00">September 20, 2007 at 10:45 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>you deleted my post with the music??/<br>
+why…?</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor even thread-even depth-1" id="li-comment-17343">
+		<article id="comment-17343" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17343"><time datetime="2007-09-21T07:28:32+00:00">September 21, 2007 at 7:28 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Uh, no I didn’t.<br>
+I just hadn’t moderated it yet (posts with links need moderating)</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-17379">
+		<article id="comment-17379" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/17d3e5bcd69608f9997f4ed1119c4eb8?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17379"><time datetime="2007-09-21T18:53:02+00:00">September 21, 2007 at 6:53 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>ok then, do you like the music good enough for dsp?</p>
+<p>PS:<br>
+if you use bossfighting you need to credit /\lex, else you dont have to credit him…<br>
+If you only use bossfighting, you dont have to credit Nils Kjellman…</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-17442">
+		<article id="comment-17442" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=44&d=mm&r=g" srcset="http://2.gravatar.com/avatar/5961f857e30b83aba97ee6247edd53ab?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn"><a href="http://www.trsi.de/users/shazz" rel="external nofollow" class="url">shazz</a></b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17442"><time datetime="2007-09-22T20:59:30+00:00">September 22, 2007 at 8:59 pm</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>YEAHHHHH !<br>
+<a href="http://sourceforge.net/projects/dsp" rel="nofollow">http://sourceforge.net/projects/dsp</a> is online !</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment byuser comment-author-danzel bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-17479">
+		<article id="comment-17479" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/798717b399b786a8fa7d1a94db8dc0a2?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">Danzel</b> <span>Post author</span></cite><a href="../../../../2007/09/04/dsp-status/#comment-17479"><time datetime="2007-09-23T10:05:40+00:00">September 23, 2007 at 10:05 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>Wow, you’re faster than Sourceforge, they still haven’t mailed me about it!<br>
+Will get uploading and setting it up.</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+	<li class="comment even thread-even depth-1" id="li-comment-17481">
+		<article id="comment-17481" class="comment">
+			<header class="comment-meta comment-author vcard">
+				<img alt="" src="http://1.gravatar.com/avatar/dfbe5c1a67b8297ed6fda61f68f654fd?s=44&d=mm&r=g" srcset="http://1.gravatar.com/avatar/dfbe5c1a67b8297ed6fda61f68f654fd?s=88&d=mm&r=g 2x" class="avatar avatar-44 photo" height="44" width="44"><cite><b class="fn">borgqueenx</b> </cite><a href="../../../../2007/09/04/dsp-status/#comment-17481"><time datetime="2007-09-23T10:38:55+00:00">September 23, 2007 at 10:38 am</time></a>			</header>
+
+			
+			<section class="comment-content comment">
+				<p>i guess you dont like the music enough:p ?<br>
+its ok…;)</p>
+							</section>
+
+			<div class="reply">
+							</div>
+		</article>
+	</li>
+		</ol>
+
+		
+				<p class="nocomments">Comments are closed.</p>
+		
+	
+	
+</div>
+			
+		</div>
+	</div>
+
+
+			<div id="secondary" class="widget-area" role="complementary">
+					<aside id="recent-posts-3" class="widget widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+											<li>
+					<a href="../../../../2020/05/09/converting-to-static-site/index.html">Converting to static site</a>
+									</li>
+											<li>
+					<a href="../../../../2018/02/09/how-to-get-the-apple-style-emojis-in-slack-on-windows/index.html">How to get the Apple style emojis back in Slack on Windows</a>
+									</li>
+											<li>
+					<a href="../../../../2016/10/03/setting-up-obs-to-record-your-desktop/index.html">Setting up OBS to record your desktop</a>
+									</li>
+											<li>
+					<a href="../../../../2016/06/07/massive-match/index.html">Massive Match</a>
+									</li>
+											<li>
+					<a href="../../../../2015/12/11/yow-melbourne-2015/index.html">YOW! Melbourne 2015</a>
+									</li>
+					</ul>
+		</aside><aside id="archives-3" class="widget widget_archive"><h3 class="widget-title">Previous Posts</h3>		<ul>
+			<li><a href="../../../../2020/05/index.html">May 2020</a></li>
+	<li><a href="../../../../2018/02/index.html">February 2018</a></li>
+	<li><a href="../../../../2016/10/index.html">October 2016</a></li>
+	<li><a href="../../../../2016/06/index.html">June 2016</a></li>
+	<li><a href="../../../../2015/12/index.html">December 2015</a></li>
+	<li><a href="../../../../2015/11/index.html">November 2015</a></li>
+	<li><a href="../../../../2015/10/index.html">October 2015</a></li>
+	<li><a href="../../../../2015/05/index.html">May 2015</a></li>
+	<li><a href="../../../../2015/03/index.html">March 2015</a></li>
+	<li><a href="../../../../2015/02/index.html">February 2015</a></li>
+	<li><a href="../../../../2014/01/index.html">January 2014</a></li>
+	<li><a href="../../../../2012/07/index.html">July 2012</a></li>
+	<li><a href="../../../../2012/04/index.html">April 2012</a></li>
+	<li><a href="../../../../2010/02/index.html">February 2010</a></li>
+	<li><a href="../../../../2009/05/index.html">May 2009</a></li>
+	<li><a href="../../../../2009/03/index.html">March 2009</a></li>
+	<li><a href="../../../../2009/02/index.html">February 2009</a></li>
+	<li><a href="../../../../2009/01/index.html">January 2009</a></li>
+	<li><a href="../../../../2008/12/index.html">December 2008</a></li>
+	<li><a href="../../../../2008/11/index.html">November 2008</a></li>
+	<li><a href="../../../../2008/10/index.html">October 2008</a></li>
+	<li><a href="../../../../2008/08/index.html">August 2008</a></li>
+	<li><a href="../../../../2008/07/index.html">July 2008</a></li>
+	<li><a href="../../../../2008/03/index.html">March 2008</a></li>
+	<li><a href="../../../../2008/01/index.html">January 2008</a></li>
+	<li><a href="../../../../2007/12/index.html">December 2007</a></li>
+	<li><a href="../../../../2007/11/index.html">November 2007</a></li>
+	<li><a href="../../../../2007/09/index.html">September 2007</a></li>
+	<li><a href="../../../../2007/08/index.html">August 2007</a></li>
+	<li><a href="../../../../2007/06/index.html">June 2007</a></li>
+	<li><a href="../../../../2007/05/index.html">May 2007</a></li>
+	<li><a href="../../../../2007/03/index.html">March 2007</a></li>
+	<li><a href="../../../../2007/02/index.html">February 2007</a></li>
+	<li><a href="../../../../2007/01/index.html">January 2007</a></li>
+	<li><a href="../../../../2006/12/index.html">December 2006</a></li>
+	<li><a href="../../../../2006/11/index.html">November 2006</a></li>
+	<li><a href="../../../../2006/08/index.html">August 2006</a></li>
+	<li><a href="../../../../2006/06/index.html">June 2006</a></li>
+	<li><a href="../../../../2006/05/index.html">May 2006</a></li>
+	<li><a href="../../../../2006/04/index.html">April 2006</a></li>
+	<li><a href="../../../../2006/03/index.html">March 2006</a></li>
+	<li><a href="../../../../2006/02/index.html">February 2006</a></li>
+	<li><a href="../../../../2006/01/index.html">January 2006</a></li>
+	<li><a href="../../../../2005/11/index.html">November 2005</a></li>
+	<li><a href="../../../../2005/10/index.html">October 2005</a></li>
+	<li><a href="../../../../2005/09/index.html">September 2005</a></li>
+		</ul>
+		</aside><aside id="linkcat-2" class="widget widget_links"><h3 class="widget-title">Mates</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://ironshod.co.nz">Ironshod iPhone Games</a></li>
+
+	</ul>
+</aside>
+		</div>
+		</div>
+	<footer id="colophon" role="contentinfo">
+		<div class="site-info">
+						<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+		</div>
+	</footer>
+</div>
+
+<script type="text/javascript" src="../../../../wp-content/themes/twentytwelve/js/navigation.js"></script>
+</body>
+</html>
